@@ -1,0 +1,321 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4270165413D5C61D003659AE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4270165313D5C61D003659AE /* UIKit.framework */; };
+		4270165613D5C61D003659AE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4270165513D5C61D003659AE /* Foundation.framework */; };
+		4270165813D5C61D003659AE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4270165713D5C61D003659AE /* CoreGraphics.framework */; };
+		4270165E13D5C61E003659AE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4270165C13D5C61E003659AE /* InfoPlist.strings */; };
+		4270166013D5C61E003659AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4270165F13D5C61E003659AE /* main.m */; };
+		4270166413D5C61E003659AE /* SMART3QAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4270166313D5C61E003659AE /* SMART3QAAppDelegate.m */; };
+		4270166713D5C61E003659AE /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4270166513D5C61E003659AE /* MainStoryboard_iPhone.storyboard */; };
+		4270166A13D5C61E003659AE /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4270166813D5C61E003659AE /* MainStoryboard_iPad.storyboard */; };
+		4270166C13D5C61E003659AE /* FirstViewController.h in Resources */ = {isa = PBXBuildFile; fileRef = 4270166B13D5C61E003659AE /* FirstViewController.h */; };
+		4270166E13D5C61E003659AE /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4270166D13D5C61E003659AE /* FirstViewController.m */; };
+		4270167013D5C61E003659AE /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 4270166F13D5C61E003659AE /* first.png */; };
+		4270167213D5C61E003659AE /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4270167113D5C61E003659AE /* first@2x.png */; };
+		4270167413D5C61F003659AE /* SecondViewController.h in Resources */ = {isa = PBXBuildFile; fileRef = 4270167313D5C61F003659AE /* SecondViewController.h */; };
+		4270167613D5C61F003659AE /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4270167513D5C61F003659AE /* SecondViewController.m */; };
+		4270167813D5C61F003659AE /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 4270167713D5C61F003659AE /* second.png */; };
+		4270167A13D5C61F003659AE /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4270167913D5C61F003659AE /* second@2x.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4270164F13D5C61D003659AE /* SMART3QA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SMART3QA.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4270165313D5C61D003659AE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		4270165513D5C61D003659AE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		4270165713D5C61D003659AE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		4270165B13D5C61D003659AE /* SMART3QA-Info.plist */ = {isa = PBXFileReference; path = "SMART3QA-Info.plist"; sourceTree = "<group>"; };
+		4270165D13D5C61E003659AE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4270165F13D5C61E003659AE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4270166113D5C61E003659AE /* SMART3QA-Prefix.pch */ = {isa = PBXFileReference; path = "SMART3QA-Prefix.pch"; sourceTree = "<group>"; };
+		4270166213D5C61E003659AE /* SMART3QAAppDelegate.h */ = {isa = PBXFileReference; path = SMART3QAAppDelegate.h; sourceTree = "<group>"; };
+		4270166313D5C61E003659AE /* SMART3QAAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SMART3QAAppDelegate.m; sourceTree = "<group>"; };
+		4270166613D5C61E003659AE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		4270166913D5C61E003659AE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		4270166B13D5C61E003659AE /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		4270166D13D5C61E003659AE /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		4270166F13D5C61E003659AE /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
+		4270167113D5C61E003659AE /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
+		4270167313D5C61F003659AE /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		4270167513D5C61F003659AE /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		4270167713D5C61F003659AE /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
+		4270167913D5C61F003659AE /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4270164C13D5C61D003659AE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4270165413D5C61D003659AE /* UIKit.framework in Frameworks */,
+				4270165613D5C61D003659AE /* Foundation.framework in Frameworks */,
+				4270165813D5C61D003659AE /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4270164413D5C61D003659AE = {
+			isa = PBXGroup;
+			children = (
+				4270165913D5C61D003659AE /* SMART3QA */,
+				4270165213D5C61D003659AE /* Frameworks */,
+				4270165013D5C61D003659AE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4270165013D5C61D003659AE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4270164F13D5C61D003659AE /* SMART3QA.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4270165213D5C61D003659AE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4270165313D5C61D003659AE /* UIKit.framework */,
+				4270165513D5C61D003659AE /* Foundation.framework */,
+				4270165713D5C61D003659AE /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4270165913D5C61D003659AE /* SMART3QA */ = {
+			isa = PBXGroup;
+			children = (
+				4270166213D5C61E003659AE /* SMART3QAAppDelegate.h */,
+				4270166313D5C61E003659AE /* SMART3QAAppDelegate.m */,
+				4270166513D5C61E003659AE /* MainStoryboard_iPhone.storyboard */,
+				4270166813D5C61E003659AE /* MainStoryboard_iPad.storyboard */,
+				4270166B13D5C61E003659AE /* FirstViewController.h */,
+				4270166D13D5C61E003659AE /* FirstViewController.m */,
+				4270166F13D5C61E003659AE /* first.png */,
+				4270167113D5C61E003659AE /* first@2x.png */,
+				4270167313D5C61F003659AE /* SecondViewController.h */,
+				4270167513D5C61F003659AE /* SecondViewController.m */,
+				4270167713D5C61F003659AE /* second.png */,
+				4270167913D5C61F003659AE /* second@2x.png */,
+				4270165A13D5C61D003659AE /* Supporting Files */,
+			);
+			path = SMART3QA;
+			sourceTree = "<group>";
+		};
+		4270165A13D5C61D003659AE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4270165B13D5C61D003659AE /* SMART3QA-Info.plist */,
+				4270165C13D5C61E003659AE /* InfoPlist.strings */,
+				4270165F13D5C61E003659AE /* main.m */,
+				4270166113D5C61E003659AE /* SMART3QA-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4270164E13D5C61D003659AE /* SMART3QA */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4270167D13D5C61F003659AE /* Build configuration list for PBXNativeTarget "SMART3QA" */;
+			buildPhases = (
+				4270164B13D5C61D003659AE /* Sources */,
+				4270164C13D5C61D003659AE /* Frameworks */,
+				4270164D13D5C61D003659AE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SMART3QA;
+			productName = SMART3QA;
+			productReference = 4270164F13D5C61D003659AE /* SMART3QA.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4270164613D5C61D003659AE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "Fontys Hogeschool ICT";
+			};
+			buildConfigurationList = 4270164913D5C61D003659AE /* Build configuration list for PBXProject "SMART3QA" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 4270164413D5C61D003659AE;
+			productRefGroup = 4270165013D5C61D003659AE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4270164E13D5C61D003659AE /* SMART3QA */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4270164D13D5C61D003659AE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4270165E13D5C61E003659AE /* InfoPlist.strings in Resources */,
+				4270166713D5C61E003659AE /* MainStoryboard_iPhone.storyboard in Resources */,
+				4270166A13D5C61E003659AE /* MainStoryboard_iPad.storyboard in Resources */,
+				4270166C13D5C61E003659AE /* FirstViewController.h in Resources */,
+				4270167013D5C61E003659AE /* first.png in Resources */,
+				4270167213D5C61E003659AE /* first@2x.png in Resources */,
+				4270167413D5C61F003659AE /* SecondViewController.h in Resources */,
+				4270167813D5C61F003659AE /* second.png in Resources */,
+				4270167A13D5C61F003659AE /* second@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4270164B13D5C61D003659AE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4270166013D5C61E003659AE /* main.m in Sources */,
+				4270166413D5C61E003659AE /* SMART3QAAppDelegate.m in Sources */,
+				4270166E13D5C61E003659AE /* FirstViewController.m in Sources */,
+				4270167613D5C61F003659AE /* SecondViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4270165C13D5C61E003659AE /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4270165D13D5C61E003659AE /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		4270166513D5C61E003659AE /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4270166613D5C61E003659AE /* en */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		4270166813D5C61E003659AE /* MainStoryboard_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4270166913D5C61E003659AE /* en */,
+			);
+			name = MainStoryboard_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4270167B13D5C61F003659AE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4270167C13D5C61F003659AE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4270167E13D5C61F003659AE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SMART3QA/SMART3QA-Prefix.pch";
+				INFOPLIST_FILE = "SMART3QA/SMART3QA-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		4270167F13D5C61F003659AE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SMART3QA/SMART3QA-Prefix.pch";
+				INFOPLIST_FILE = "SMART3QA/SMART3QA-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4270164913D5C61D003659AE /* Build configuration list for PBXProject "SMART3QA" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4270167B13D5C61F003659AE /* Debug */,
+				4270167C13D5C61F003659AE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4270167D13D5C61F003659AE /* Build configuration list for PBXNativeTarget "SMART3QA" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4270167E13D5C61F003659AE /* Debug */,
+				4270167F13D5C61F003659AE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4270164613D5C61D003659AE /* Project object */;
+}
