@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4217075813D73E9B00F18BE6 /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4217075713D73E9B00F18BE6 /* QuestionViewController.m */; };
 		421F659A13D6F35400CC6D4C /* badgesselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 421F658A13D6F35400CC6D4C /* badgesselected.png */; };
 		421F659B13D6F35400CC6D4C /* badgesselected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 421F658B13D6F35400CC6D4C /* badgesselected@2x.png */; };
 		421F659C13D6F35400CC6D4C /* badgesunselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 421F658C13D6F35400CC6D4C /* badgesunselected.png */; };
@@ -24,6 +25,7 @@
 		421F65A813D6F35400CC6D4C /* usersunselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 421F659813D6F35400CC6D4C /* usersunselected.png */; };
 		421F65A913D6F35400CC6D4C /* usersunselected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 421F659913D6F35400CC6D4C /* usersunselected@2x.png */; };
 		421F65CC13D6F67D00CC6D4C /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 421F65CB13D6F67D00CC6D4C /* Question.m */; };
+		425B139C13D6FCC60034F104 /* QuestionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 425B139B13D6FCC60034F104 /* QuestionViewCell.m */; };
 		426C6B6813D6482B00A7B59C /* UserViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 426C6B6713D6482B00A7B59C /* UserViewCell.m */; };
 		4270165413D5C61D003659AE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4270165313D5C61D003659AE /* UIKit.framework */; };
 		4270165613D5C61D003659AE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4270165513D5C61D003659AE /* Foundation.framework */; };
@@ -53,6 +55,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4217075613D73E7900F18BE6 /* QuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QuestionViewController.h; path = SBJSON/QuestionViewController.h; sourceTree = "<group>"; };
+		4217075713D73E9B00F18BE6 /* QuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QuestionViewController.m; path = ../QuestionViewController.m; sourceTree = "<group>"; };
 		421F658A13D6F35400CC6D4C /* badgesselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = badgesselected.png; path = ../badgesselected.png; sourceTree = "<group>"; };
 		421F658B13D6F35400CC6D4C /* badgesselected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "badgesselected@2x.png"; path = "../badgesselected@2x.png"; sourceTree = "<group>"; };
 		421F658C13D6F35400CC6D4C /* badgesunselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = badgesunselected.png; path = ../badgesunselected.png; sourceTree = "<group>"; };
@@ -71,6 +75,8 @@
 		421F659913D6F35400CC6D4C /* usersunselected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "usersunselected@2x.png"; path = "../usersunselected@2x.png"; sourceTree = "<group>"; };
 		421F65CA13D6F67400CC6D4C /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
 		421F65CB13D6F67D00CC6D4C /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
+		425B139913D6FC940034F104 /* QuestionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionViewCell.h; sourceTree = "<group>"; };
+		425B139B13D6FCC60034F104 /* QuestionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionViewCell.m; sourceTree = "<group>"; };
 		426C6B6513D647E600A7B59C /* UserViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserViewCell.h; sourceTree = "<group>"; };
 		426C6B6713D6482B00A7B59C /* UserViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserViewCell.m; sourceTree = "<group>"; };
 		4270164F13D5C61D003659AE /* SMART3QA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SMART3QA.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -169,6 +175,10 @@
 				4270166D13D5C61E003659AE /* QuestionsViewController.m */,
 				421F65CA13D6F67400CC6D4C /* Question.h */,
 				421F65CB13D6F67D00CC6D4C /* Question.m */,
+				425B139913D6FC940034F104 /* QuestionViewCell.h */,
+				425B139B13D6FCC60034F104 /* QuestionViewCell.m */,
+				4217075613D73E7900F18BE6 /* QuestionViewController.h */,
+				4217075713D73E9B00F18BE6 /* QuestionViewController.m */,
 				4270167313D5C61F003659AE /* UsersViewController.h */,
 				4270167513D5C61F003659AE /* UsersViewController.m */,
 				427016AA13D5CC96003659AE /* User.h */,
@@ -341,6 +351,8 @@
 				427016AC13D5CCA6003659AE /* User.m in Sources */,
 				426C6B6813D6482B00A7B59C /* UserViewCell.m in Sources */,
 				421F65CC13D6F67D00CC6D4C /* Question.m in Sources */,
+				425B139C13D6FCC60034F104 /* QuestionViewCell.m in Sources */,
+				4217075813D73E9B00F18BE6 /* QuestionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
