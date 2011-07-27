@@ -2,31 +2,40 @@
 
 @implementation Question
 
-- (void) setQuestionId:(NSInteger *)input
+- (void) setQuestionId:(NSInteger)input
 {
     questionId = input;
 }
-- (NSInteger *) getQuestionId
+- (NSInteger) getQuestionId
 {
     return questionId;
 }
 
-- (void) setAcceptedAnswer:(NSInteger *)input
+- (void) setAcceptedAnswer:(NSInteger)input
 {
     acceptedAnswer = input;
 }
-- (NSInteger *) getAcceptedAnswer
+- (NSInteger) getAcceptedAnswer
 {
     return acceptedAnswer;
 }
 
-- (void) setUserId:(NSInteger *)input
+- (void) setUserId:(NSInteger)input
 {
     userId = input;
 }
-- (NSInteger *) getUserId
+- (NSInteger) getUserId
 {
     return userId;
+}
+
+- (void) setAnswerCount:(NSInteger)input
+{
+    answerCount = input;
+}
+- (NSInteger) getAnswerCount
+{
+    return answerCount;
 }
 
 - (void) setTitle:(NSString *)input
@@ -47,11 +56,11 @@
     return body;
 }
 
-- (void) setCreated:(NSString *)input
+- (void) setCreated:(NSDate *)input
 {
     created = input;
 }
-- (NSString *) getCreated
+- (NSDate *) getCreated
 {
     return created;
 }

@@ -2,8 +2,6 @@
 
 @implementation QuestionViewCell
 
-@synthesize titleLabel, userIdLabel, answerCountLabel, questionImage, app;
-
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier 
 {
     app = (SMART3QAAppDelegate*)[[UIApplication sharedApplication]delegate];
@@ -25,10 +23,15 @@
         [titleLabel setBackgroundColor:[UIColor clearColor]];
         [self.contentView addSubview:titleLabel];
         
-        userIdLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-        [userIdLabel setFont:[UIFont systemFontOfSize:12]];
-        [userIdLabel setBackgroundColor:[UIColor clearColor]];
-        [self.contentView addSubview:userIdLabel];
+        userLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+        [userLabel setFont:[UIFont systemFontOfSize:12]];
+        [userLabel setBackgroundColor:[UIColor clearColor]];
+        [self.contentView addSubview:userLabel];
+        
+        createdLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+        [createdLabel setFont:[UIFont systemFontOfSize:12]];
+        [createdLabel setBackgroundColor:[UIColor clearColor]];
+        [self.contentView addSubview:createdLabel];
     }
     return self;
 }
@@ -54,16 +57,31 @@
     CGRect titleRect = contentRect;
     titleRect.origin.x = imageRect.origin.x + imageRect.size.width + 5;
     titleRect.origin.y = imageRect.origin.y;
-    titleRect.size.height = 30;
-    titleRect.size.width = 300;
+    titleRect.size.height = 20;
+    titleRect.size.width = 250;
     titleLabel.frame = titleRect;
     
     CGRect userIdRect = contentRect;
-    userIdRect.origin.x = imageRect.origin.x + imageRect.size.width + 5;
-    userIdRect.origin.y = imageRect.origin.y + 17;
-    userIdRect.size.width = 200;
-    userIdRect.size.height = 30;
-    userIdLabel.frame = userIdRect;
+    userIdRect.origin.x = titleRect.origin.x;
+    userIdRect.origin.y = titleRect.origin.y + titleRect.size.height + 5;
+    userIdRect.size.width = 250;
+    userIdRect.size.height = 15;
+    userLabel.frame = userIdRect;
+    
+    CGRect createdRect = contentRect;
+    createdRect.origin.x = titleRect.origin.x;
+    createdRect.origin.y = userIdRect.origin.y + userIdRect.size.height;
+    createdRect.size.width = 250;
+    createdRect.size.height = 15;
+    createdLabel.frame = createdRect;
+}
+
+- (void)loadQuestion:(Question *)question
+{
+    [answerCountLabel setText: [NSString stringWithFormat:@"%d", [question getAnswerCount]]];
+    [titleLabel setText: [question getTitle]];
+    [userLabel setText: [[NSString stringWithString:@"By: "] stringByAppendingString:[[app getUserForId:[question getUserId]] getName]]];
+    [createdLabel setText:[app timeSinceDate:[question getCreated]]];
 }
 
 @end

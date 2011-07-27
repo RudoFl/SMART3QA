@@ -9,11 +9,11 @@
     UIImage *avatar;
 }
 
-- (void)setUserId:(NSInteger *)input;
-- (NSInteger *) getUserId;
+- (void)setUserId:(NSInteger)input;
+- (NSInteger) getUserId;
 
-- (void)setReputation:(NSInteger *)input;
-- (NSInteger *) getReputation;
+- (void)setReputation:(NSInteger)input;
+- (NSInteger) getReputation;
 
 - (void) setName:(NSString *)input;
 - (NSString *) getName;

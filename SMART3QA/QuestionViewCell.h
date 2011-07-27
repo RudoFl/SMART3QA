@@ -1,17 +1,13 @@
 #import <UIKit/UIKit.h>
-#import "SMART3QAAppDelegate.h";
+#import "SMART3QAAppDelegate.h"
 
-@interface QuestionViewCell : UITableViewCell {
-    UILabel *nameLabel, *locationLabel, *answerCountLabel;
+@interface QuestionViewCell : UITableViewCell
+{
+    UILabel *titleLabel, *userLabel, *answerCountLabel, *createdLabel;
     UIImageView *questionImage;
-    UIImageView *avatar;
-    SMART3QAAppDelegate* app;
+    SMART3QAAppDelegate *app;
 }
 
-@property (nonatomic, retain) UILabel *titleLabel;
-@property (nonatomic, retain) UILabel *userIdLabel;
-@property (nonatomic, retain) UILabel *answerCountLabel;
-@property (nonatomic, retain) UIImageView *questionImage;
-@property (nonatomic, retain) SMART3QAAppDelegate* app;
+- (void)loadQuestion:(Question *)question;
 
 @end

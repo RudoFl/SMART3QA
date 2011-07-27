@@ -4,8 +4,6 @@
 
 @implementation UserViewController
 
-@synthesize nameLabel, locationLabel, aboutLabel, urlLabel, birthdayLabel, createdLabel, avatarView, global;
-
 - (void)setup
 {   
     global = (SMART3QAAppDelegate*)[[UIApplication sharedApplication]delegate];

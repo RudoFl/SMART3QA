@@ -2,10 +2,8 @@
 #import "UserViewCell.h"
 #import "User.h"
 #import "UserViewController.h"
+
 @implementation UsersViewController
-
-
-@synthesize app;
 
 - (void)didReceiveMemoryWarning
 {
@@ -43,10 +41,7 @@
         cell = [[UserViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     User *selectedUser = [app getUserForIndex:[indexPath row]];
-    [cell.nameLabel setText:[selectedUser getName]];
-    [cell.locationLabel setText:[selectedUser getLocation]];
-    [cell.reputationLabel setText:[NSString stringWithFormat:@"Rep: %d", [selectedUser getReputation]]];
-    [cell.avatar setImage:[app resizeImage:[selectedUser getAvatar] scaleToSize:CGSizeMake(60, 60)]];
+    [cell loadUser:selectedUser];
     return cell;
 }
 

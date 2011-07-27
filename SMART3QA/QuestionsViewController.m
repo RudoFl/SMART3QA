@@ -5,8 +5,6 @@
 
 @implementation QuestionsViewController
 
-@synthesize app;
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -43,19 +41,17 @@
         cell = [[QuestionViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     Question *selectedQuestion = [app getQuestionForIndex:[indexPath row]];
-    cell.titleLabel.text = [selectedQuestion getTitle];
-    cell.userIdLabel.text = [NSString stringWithFormat:@"%d", [selectedQuestion getUserId]];
-    cell.answerCountLabel.text = [NSString stringWithFormat:@"%d", [indexPath row] + 1];//[selectedQuestion getAwnsercount]];
+    [cell loadQuestion:selectedQuestion];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Question *selectedQuestion = [app getQuestionForIndex:[indexPath row]];
-    QuestionViewController *detailedQuestionView = [[QuestionsViewController alloc] init];
-    //[detailedQuestionView loadQuestion:selectedQuestion];
-    [self.navigationController pushViewController:detailedQuestionView animated:YES];
-    //self.view = detailedQuestionView.view;
+    QuestionViewController *questionView = [[QuestionViewController alloc] initWithNibName:@"QuestionViewController" bundle:nil];
+    [questionView setTitle:[selectedQuestion getTitle]];
+    [self.navigationController pushViewController:questionView animated:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

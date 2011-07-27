@@ -2,20 +2,20 @@
 
 @implementation User
 
-- (void)setUserId:(NSInteger *)input
+- (void)setUserId:(NSInteger)input
 {
     userId = input;
 }
-- (NSInteger *) getUserId
+- (NSInteger) getUserId
 {
     return userId;
 }
 
-- (void)setReputation:(NSInteger *)input
+- (void)setReputation:(NSInteger)input
 {
     reputation = input;
 }
-- (NSInteger *) getReputation
+- (NSInteger) getReputation
 {
     return reputation;
 }

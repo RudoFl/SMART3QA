@@ -13,15 +13,16 @@
 
 @implementation SMART3QAAppDelegate
 
-@synthesize window = _window, hostname;
+@synthesize window = _window;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    [self.window makeKeyAndVisible];
-    hostname = [[NSString alloc]initWithString:@"http://192.168.1.103"];
+    //hostname = [[NSString alloc]initWithString:@"http://192.168.1.103"];
+    hostname = [[NSString alloc]initWithString:@"http://vanderwerf.xs4all.nl"];
     [self downloadQuestions];
     [self downloadUsers];
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
@@ -87,7 +88,7 @@
 {
     NSDateFormatter *dateFormatter = [NSDateFormatter alloc];
     [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
-    [dateFormatter setDateFormat:@"yyyy-mm-dd HH:mm:ss"];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     NSString *dateString = [dateFormatter stringFromDate:date];
     return dateString;
 }
@@ -96,9 +97,35 @@
 {
     NSDateFormatter *dateFormatter = [NSDateFormatter alloc];
     [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
-    [dateFormatter setDateFormat:@"yyyy-mm-dd HH:mm:ss"];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     NSDate *stringDate = [dateFormatter dateFromString:string];
     return stringDate;
+}
+
+- (NSString *)timeSinceDate:(NSDate *)date
+{
+    int interval = [date timeIntervalSinceNow];
+    int seconds = -interval;
+    int minutes = seconds / 60;
+    int hours = seconds / 3600;
+    int days = seconds / 86400;
+    int weeks = seconds / 604800;
+    if(weeks > 0)
+    {
+        return [NSString stringWithFormat:@"%d weeks ago", weeks];
+    } else if(days > 0)
+    {
+        return [NSString stringWithFormat:@"%d days ago", days];
+    } else if(hours > 0)
+    {
+        return [NSString stringWithFormat:@"%d hours ago", hours];
+    } else if(minutes > 0)
+    {
+        return [NSString stringWithFormat:@"%d minutes ago", minutes];
+    } else
+    {
+        return [NSString stringWithFormat:@"%d seconds ago", seconds];
+    }
 }
 
 - (void)downloadQuestions
@@ -118,12 +145,19 @@
     for (NSDictionary *dict in questions)
     {
         Question *newQuestion = [[Question alloc]init];
-        //[newQuestion setQuestionId:[[dict objectForKey:@"id"] intValue]];
+        [newQuestion setQuestionId:[[dict objectForKey:@"id"] intValue]];
         [newQuestion setTitle:[dict objectForKey:@"title"]];
-        //[newQuestion setBody:[dict objectForKey:@"body"]];
+        [newQuestion setBody:[dict objectForKey:@"body"]];
         [newQuestion setUserId: [[dict objectForKey:@"user_id"] intValue]];
-        //[newQuestion setCreated:[dict objectForKey:@"created"]];
-        //[newQuestion setAcceptedAnswer:[[dict objectForKey:@"accepted_answer_id"] intValue]];
+        [newQuestion setCreated:[self dateFromString:[dict objectForKey:@"created"]]];
+        [newQuestion setAnswerCount:[[dict objectForKey:@"answer_count"] intValue]];
+        if([dict objectForKey:@"accepted_answer_id"] == [NSNull null])
+        {
+            [newQuestion setAcceptedAnswer:-1];
+        } else
+        {
+            [newQuestion setAcceptedAnswer:[[dict objectForKey:@"accepted_answer_id"] intValue]];
+        }
         [parsedQuestions addObject:newQuestion];
     }
     
@@ -135,7 +169,7 @@
     return questions;
 }
 
-- (Question *)getQuestionForId:(NSInteger *)questionid
+- (Question *)getQuestionForId:(NSInteger)questionid
 {
     for(Question *q in questions){
         if([q getQuestionId] == questionid)
@@ -146,7 +180,7 @@
     return nil;
 }
 
-- (Question *)getQuestionForIndex:(NSInteger *)index
+- (Question *)getQuestionForIndex:(NSInteger)index
 {
     return [questions objectAtIndex:index];
 }
@@ -168,6 +202,7 @@
     for (NSDictionary *dict in users)
     {
         User *newUser = [[User alloc]init];
+        [newUser setUserId:[[dict objectForKey:@"id"] intValue]];
         [newUser setName:[dict objectForKey:@"name"]];
         [newUser setLocation:[dict objectForKey:@"location"]];
         
@@ -188,7 +223,7 @@
     return users;
 }
 
-- (User *)getUserForId:(NSInteger *)userid
+- (User *)getUserForId:(NSInteger)userid
 {
     for(User *u in users)
     {
@@ -200,9 +235,26 @@
     return nil;
 }
 
-- (Question *)getUserForIndex:(NSInteger *)index
+- (Question *)getUserForIndex:(NSInteger)index
 {
     return [users objectAtIndex:index];    
 }
+
+- (void)describeDictionary:(NSDictionary *)dict
+{ 
+    NSArray *keys;
+    int i, count;
+    id key, value;
+    
+    keys = [dict allKeys];
+    count = [keys count];
+    for (i = 0; i < count; i++)
+    {
+        key = [keys objectAtIndex: i];
+        value = [dict objectForKey: key];
+        NSLog (@"Key: %@ for value: %@", key, value);
+    }
+}
+
 
 @end

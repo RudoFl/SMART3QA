@@ -11,25 +11,28 @@
 #import "User.h"
 
 @interface SMART3QAAppDelegate : UIResponder <UIApplicationDelegate>
-{
-    NSArray *questions, *users;
+{    
     NSString *hostname;
+    NSArray *questions;
+    NSArray *users;
 }
 
 @property (strong, nonatomic) UIWindow *window;
-@property (nonatomic, retain) NSString *hostname;
 
 - (UIImage *)downloadImage:(NSURL *)url;
 - (UIImage *)resizeImage:(UIImage *)image scaleToSize:(CGSize)newSize;
 - (NSString *)stringFromDate:(NSDate *)date;
 - (NSDate *)dateFromString:(NSString *)string;
+- (NSString *)timeSinceDate:(NSDate *)date;
 - (void)downloadQuestions;
 - (NSArray *)getQuestions;
-- (Question *)getQuestionForId:(NSInteger *)questionid;
-- (Question *)getQuestionForIndex:(NSInteger *)index;
+- (Question *)getQuestionForId:(NSInteger)questionid;
+- (Question *)getQuestionForIndex:(NSInteger)index;
 - (void)downloadUsers;
 - (NSArray *)getUsers;
-- (User *)getUserForId:(NSInteger *)userid;
-- (Question *)getUserForIndex:(NSInteger *)index;
+- (User *)getUserForId:(NSInteger)userid;
+- (Question *)getUserForIndex:(NSInteger)index;
+
+- (void)describeDictionary:(NSDictionary *)dict;
 
 @end

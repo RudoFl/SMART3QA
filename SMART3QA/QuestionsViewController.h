@@ -7,6 +7,4 @@
     SMART3QAAppDelegate* app;
 }
 
-@property (nonatomic, retain) SMART3QAAppDelegate* app;
-
 @end

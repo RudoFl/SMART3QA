@@ -2,10 +2,9 @@
 
 @implementation UserViewCell
 
-@synthesize nameLabel, locationLabel, reputationLabel, avatar;
-
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier 
 {
+    app = (SMART3QAAppDelegate *) [[UIApplication sharedApplication] delegate];
     if(self = [super initWithStyle:style reuseIdentifier:reuseIdentifier])
     {
         avatar = [[UIImageView alloc] initWithFrame:CGRectZero];
@@ -60,6 +59,14 @@
     reputationRect.size.width = 200;
     reputationRect.size.height = 30;
     reputationLabel.frame = reputationRect;
+}
+
+- (void)loadUser:(User *)user
+{    
+    [nameLabel setText:[user getName]];
+    [locationLabel setText:[user getLocation]];
+    [reputationLabel setText:[NSString stringWithFormat:@"Rep: %d", [user getReputation]]];
+    [avatar setImage:[app resizeImage:[user getAvatar] scaleToSize:CGSizeMake(60, 60)]];
 }
 
 @end
