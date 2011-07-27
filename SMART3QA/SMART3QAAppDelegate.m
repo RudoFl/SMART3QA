@@ -7,15 +7,21 @@
 //
 
 #import "SMART3QAAppDelegate.h"
+#import "SBJSON/SBJson.h"
+#import "Question.h"
+#import "User.h"
 
 @implementation SMART3QAAppDelegate
 
-@synthesize window = _window;
+@synthesize window = _window, hostname;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
     [self.window makeKeyAndVisible];
+    hostname = [[NSString alloc]initWithString:@"http://192.168.1.103"];
+    [self downloadQuestions];
+    [self downloadUsers];
     return YES;
 }
 
@@ -56,6 +62,147 @@
      Save data if appropriate.
      See also applicationDidEnterBackground:.
      */
+}
+
+- (UIImage *)downloadImage:(NSURL *)url
+{
+    NSData *imageData = [[NSData alloc]initWithContentsOfURL:url];
+    if(imageData == nil)
+        return nil;
+    UIImage *image = [[UIImage alloc]initWithData:imageData];
+    
+    return image;
+}
+
+- (UIImage *)resizeImage:(UIImage *)image scaleToSize:(CGSize)newSize
+{
+    UIGraphicsBeginImageContext( newSize );
+    [image drawInRect:CGRectMake(0,0,newSize.width,newSize.height)];
+    image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
+}
+
+- (NSString *)stringFromDate:(NSDate *)date
+{
+    NSDateFormatter *dateFormatter = [NSDateFormatter alloc];
+    [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+    [dateFormatter setDateFormat:@"yyyy-mm-dd HH:mm:ss"];
+    NSString *dateString = [dateFormatter stringFromDate:date];
+    return dateString;
+}
+
+- (NSDate *)dateFromString:(NSString *)string
+{
+    NSDateFormatter *dateFormatter = [NSDateFormatter alloc];
+    [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+    [dateFormatter setDateFormat:@"yyyy-mm-dd HH:mm:ss"];
+    NSDate *stringDate = [dateFormatter dateFromString:string];
+    return stringDate;
+}
+
+- (void)downloadQuestions
+{
+    NSString *myRawJSON = [[NSString alloc]initWithContentsOfURL:[[NSURL alloc] initWithString:[hostname stringByAppendingString:@"/QA/questions.json"]] encoding:NSUTF8StringEncoding error:nil];
+    
+    if ([myRawJSON length] == 0) 
+    {
+        return;
+    }
+    
+    SBJsonParser *parser = [[SBJsonParser alloc]init];
+    questions = [[parser objectWithString:myRawJSON error:nil] copy];
+    //NSLog(@"Users: %d", [users count]);*/
+    
+    NSMutableArray *parsedQuestions = [NSMutableArray array];
+    for (NSDictionary *dict in questions)
+    {
+        Question *newQuestion = [[Question alloc]init];
+        //[newQuestion setQuestionId:[[dict objectForKey:@"id"] intValue]];
+        [newQuestion setTitle:[dict objectForKey:@"title"]];
+        //[newQuestion setBody:[dict objectForKey:@"body"]];
+        [newQuestion setUserId: [[dict objectForKey:@"user_id"] intValue]];
+        //[newQuestion setCreated:[dict objectForKey:@"created"]];
+        //[newQuestion setAcceptedAnswer:[[dict objectForKey:@"accepted_answer_id"] intValue]];
+        [parsedQuestions addObject:newQuestion];
+    }
+    
+    questions = [parsedQuestions copy];
+}
+
+- (NSArray *)getQuestions
+{
+    return questions;
+}
+
+- (Question *)getQuestionForId:(NSInteger *)questionid
+{
+    for(Question *q in questions){
+        if([q getQuestionId] == questionid)
+        {
+            return q;
+        }
+    }
+    return nil;
+}
+
+- (Question *)getQuestionForIndex:(NSInteger *)index
+{
+    return [questions objectAtIndex:index];
+}
+
+- (void)downloadUsers
+{
+    NSString *myRawJSON = [[NSString alloc]initWithContentsOfURL:[NSURL URLWithString:[hostname stringByAppendingString:@"/QA/users.json"]] encoding:NSUTF8StringEncoding error:nil];
+    
+    if ([myRawJSON length] == 0) 
+    {
+        return;
+    }
+    
+    SBJsonParser *parser = [[SBJsonParser alloc]init];
+    users = [[parser objectWithString:myRawJSON error:nil] copy];
+    //NSLog(@"Users: %d", [users count]);
+    
+    NSMutableArray *parsedUsers = [NSMutableArray array];
+    for (NSDictionary *dict in users)
+    {
+        User *newUser = [[User alloc]init];
+        [newUser setName:[dict objectForKey:@"name"]];
+        [newUser setLocation:[dict objectForKey:@"location"]];
+        
+        NSString *avatarURL = [[NSString alloc] initWithFormat:[dict objectForKey:@"avatar"]];
+        [newUser setAvatar:[self downloadImage:[[NSURL alloc] initWithString:avatarURL]]];
+        
+        [newUser setReputation:[[dict objectForKey:@"reputation_sum"] intValue]];
+        [newUser setCreated:[self dateFromString:[dict objectForKey:@"created"]]];
+        
+        [parsedUsers addObject:newUser];
+    }
+    
+    users = [parsedUsers copy];
+}
+
+- (NSArray *)getUsers
+{
+    return users;
+}
+
+- (User *)getUserForId:(NSInteger *)userid
+{
+    for(User *u in users)
+    {
+        if([u getUserId] == userid)
+        {
+            return u;
+        }
+    }
+    return nil;
+}
+
+- (Question *)getUserForIndex:(NSInteger *)index
+{
+    return [users objectAtIndex:index];    
 }
 
 @end
