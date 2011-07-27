@@ -4,7 +4,7 @@
 @interface QuestionViewCell : UITableViewCell
 {
     UILabel *titleLabel, *userLabel, *answerCountLabel, *createdLabel;
-    UIImageView *questionImage;
+    UIImageView *questionImage, *tableDividerImage;
     SMART3QAAppDelegate *app;
 }
 

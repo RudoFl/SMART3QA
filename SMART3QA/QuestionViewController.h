@@ -1,13 +1,11 @@
-//
-//  QuestionViewController.h
-//  SMART3QA
-//
-//  Created by Ruud Puts on 7/27/11.
-//  Copyright 2011 Fontys Hogeschool ICT. All rights reserved.
-//
-
 #import <UIKit/UIKit.h>
+#import "Question.h"
 
-@interface QuestionViewController : UIViewController
+@interface QuestionViewController : UIViewController {
+    UILabel *titleLabel;
+}
+
+- (void)setup;
+- (void)loadQuestion:(Question *)question;
 
 @end

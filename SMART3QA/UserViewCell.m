@@ -24,6 +24,10 @@
         [reputationLabel setFont:[UIFont systemFontOfSize:12]];
         [reputationLabel setBackgroundColor:[UIColor clearColor]];
         [self.contentView addSubview:reputationLabel];
+        
+        tableDividerImage = [[UIImageView alloc] initWithFrame:CGRectMake(-10, 69, 640, 1)];
+        tableDividerImage.image = [UIImage imageNamed:@"tabledivider.png"];
+        [self.contentView addSubview:tableDividerImage];
     }
     return self;
 }

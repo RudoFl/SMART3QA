@@ -1,7 +1,7 @@
 #import "QuestionsViewController.h"
-#import "QuestionViewController.h"
 #import "Question.h"
 #import "QuestionViewCell.h"
+#import "QuestionViewController.h"
 
 @implementation QuestionsViewController
 
@@ -48,8 +48,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Question *selectedQuestion = [app getQuestionForIndex:[indexPath row]];
-    QuestionViewController *questionView = [[QuestionViewController alloc] initWithNibName:@"QuestionViewController" bundle:nil];
-    [questionView setTitle:[selectedQuestion getTitle]];
+    QuestionViewController *questionView = [[QuestionViewController alloc] init];
+    [questionView setup];
+    [questionView loadQuestion:selectedQuestion];
     [self.navigationController pushViewController:questionView animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }

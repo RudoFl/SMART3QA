@@ -3,7 +3,7 @@
 
 @interface UserViewCell : UITableViewCell {
     UILabel *nameLabel, *locationLabel, *reputationLabel;
-    UIImageView *avatar;
+    UIImageView *avatar, *tableDividerImage;
     SMART3QAAppDelegate *app;
 }
 

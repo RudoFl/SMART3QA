@@ -6,7 +6,7 @@
 
 - (void)setup
 {   
-    global = (SMART3QAAppDelegate*)[[UIApplication sharedApplication]delegate];
+    app = (SMART3QAAppDelegate*)[[UIApplication sharedApplication]delegate];
     
     self.view.backgroundColor = [UIColor whiteColor];
     
@@ -70,9 +70,9 @@
 {
     [self setTitle:[user getName]];
     [nameLabel setText:[user getName]];
-    [createdLabel setText:[global stringFromDate:[user getCreated]]];
+    [createdLabel setText:[app stringFromDate:[user getCreated]]];
     [locationLabel setText:[user getLocation]];
-    [avatarView setImage:[global resizeImage:[user getAvatar] scaleToSize:CGSizeMake(100, 100)]];
+    [avatarView setImage:[app resizeImage:[user getAvatar] scaleToSize:CGSizeMake(100, 100)]];
 }
 
 @end

@@ -5,7 +5,7 @@
 @interface UserViewController : UIViewController {
     UILabel *userIdLabel, *reputationLabel, *nameLabel, *locationLabel, *aboutLabel, *urlLabel, *birthdayLabel, *createdLabel;
     UIImageView *avatarView;
-    SMART3QAAppDelegate* global;
+    SMART3QAAppDelegate* app;
 }
 
 - (void)setup;

@@ -1,52 +1,25 @@
-//
-//  QuestionViewController.m
-//  SMART3QA
-//
-//  Created by Ruud Puts on 7/27/11.
-//  Copyright 2011 Fontys Hogeschool ICT. All rights reserved.
-//
-
 #import "QuestionViewController.h"
+#import "Question.h"
 
 @implementation QuestionViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-- (void)didReceiveMemoryWarning
-{
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
+- (void)setup
+{   
+    self.view.backgroundColor = [UIColor redColor];
     
-    // Release any cached data, images, etc that aren't in use.
+    titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 
+                                                          5, 
+                                                          200, 
+                                                          30)];
+    [titleLabel setFont:[UIFont boldSystemFontOfSize:24]];
+    [titleLabel setBackgroundColor:[UIColor clearColor]];
+    [self.view addSubview:titleLabel];
 }
 
-#pragma mark - View lifecycle
-
-- (void)viewDidLoad
+- (void)loadQuestion:(Question *)question
 {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    NSLog(@"nog maar een test..");
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    [self setTitle:[question getTitle]];
+    [titleLabel setText:[question getTitle]];
 }
 
 @end
