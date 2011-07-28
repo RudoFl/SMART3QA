@@ -1,7 +1,7 @@
 #import "UsersViewController.h"
 #import "UserViewCell.h"
 #import "User.h"
-#import "UserViewController.h"
+#import "UserDetailsController.h"
 
 @implementation UsersViewController
 
@@ -48,7 +48,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     User *selectedUser = [app getUserForIndex:[indexPath row]];
-    UserViewController *userView = [[UserViewController alloc] init];
+    UserDetailsController *userView = [[UserDetailsController alloc] init];
     [userView setup];
     [userView loadUser:selectedUser];
     [self.navigationController pushViewController:userView animated:YES];

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4217075813D73E9B00F18BE6 /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4217075713D73E9B00F18BE6 /* QuestionViewController.m */; };
 		421F659A13D6F35400CC6D4C /* badges.png in Resources */ = {isa = PBXBuildFile; fileRef = 421F658A13D6F35400CC6D4C /* badges.png */; };
 		421F659B13D6F35400CC6D4C /* badges@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 421F658B13D6F35400CC6D4C /* badges@2x.png */; };
 		421F659E13D6F35400CC6D4C /* questions.png in Resources */ = {isa = PBXBuildFile; fileRef = 421F658E13D6F35400CC6D4C /* questions.png */; };
@@ -17,7 +16,7 @@
 		421F65A613D6F35400CC6D4C /* users.png in Resources */ = {isa = PBXBuildFile; fileRef = 421F659613D6F35400CC6D4C /* users.png */; };
 		421F65CC13D6F67D00CC6D4C /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 421F65CB13D6F67D00CC6D4C /* Question.m */; };
 		425B139C13D6FCC60034F104 /* QuestionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 425B139B13D6FCC60034F104 /* QuestionViewCell.m */; };
-		426860B513D85280009C9D63 /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 426860B413D85280009C9D63 /* UserViewController.m */; };
+		426860B513D85280009C9D63 /* UserDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 426860B413D85280009C9D63 /* UserDetailsController.m */; };
 		426C6B6813D6482B00A7B59C /* UserViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 426C6B6713D6482B00A7B59C /* UserViewCell.m */; };
 		4270165413D5C61D003659AE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4270165313D5C61D003659AE /* UIKit.framework */; };
 		4270165613D5C61D003659AE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4270165513D5C61D003659AE /* Foundation.framework */; };
@@ -45,6 +44,9 @@
 		427016A513D5C7E7003659AE /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4270169913D5C7E7003659AE /* SBJsonWriter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		427016AC13D5CCA6003659AE /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 427016AB13D5CCA6003659AE /* User.m */; };
 		42838BC213DFF80F00389D26 /* questionbaloon.png in Resources */ = {isa = PBXBuildFile; fileRef = 42838BC113DFF80F00389D26 /* questionbaloon.png */; };
+		42A4882D13E09E09007316B4 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 42A4882C13E09E09007316B4 /* Entitlements.plist */; };
+		42A4883713E0AE46007316B4 /* tabledivider.png in Resources */ = {isa = PBXBuildFile; fileRef = 42A4883613E0AE46007316B4 /* tabledivider.png */; };
+		42A4883A13E0AEE6007316B4 /* QuestionDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A4883913E0AEE6007316B4 /* QuestionDetailsController.m */; };
 		42EA7BC213D88FD400F2B842 /* users@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42EA7BC113D88FD400F2B842 /* users@2x.png */; };
 		42EA7BCD13D8978D00F2B842 /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 42EA7BC313D8978C00F2B842 /* facebook.png */; };
 		42EA7BCE13D8978D00F2B842 /* facebook@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42EA7BC413D8978C00F2B842 /* facebook@2x.png */; };
@@ -59,8 +61,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4217075613D73E7900F18BE6 /* QuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QuestionViewController.h; path = SBJSON/QuestionViewController.h; sourceTree = "<group>"; };
-		4217075713D73E9B00F18BE6 /* QuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QuestionViewController.m; path = ../QuestionViewController.m; sourceTree = "<group>"; };
 		421F658A13D6F35400CC6D4C /* badges.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = badges.png; path = ../badges.png; sourceTree = "<group>"; };
 		421F658B13D6F35400CC6D4C /* badges@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "badges@2x.png"; path = "../badges@2x.png"; sourceTree = "<group>"; };
 		421F658E13D6F35400CC6D4C /* questions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = questions.png; path = ../questions.png; sourceTree = "<group>"; };
@@ -72,8 +72,8 @@
 		421F65CB13D6F67D00CC6D4C /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
 		425B139913D6FC940034F104 /* QuestionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionViewCell.h; sourceTree = "<group>"; };
 		425B139B13D6FCC60034F104 /* QuestionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionViewCell.m; sourceTree = "<group>"; };
-		426860B313D85273009C9D63 /* UserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserViewController.h; sourceTree = "<group>"; };
-		426860B413D85280009C9D63 /* UserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserViewController.m; sourceTree = "<group>"; };
+		426860B313D85273009C9D63 /* UserDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = UserDetailsController.h; sourceTree = "<group>"; };
+		426860B413D85280009C9D63 /* UserDetailsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDetailsController.m; sourceTree = "<group>"; };
 		426C6B6513D647E600A7B59C /* UserViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserViewCell.h; sourceTree = "<group>"; };
 		426C6B6713D6482B00A7B59C /* UserViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserViewCell.m; sourceTree = "<group>"; };
 		4270164F13D5C61D003659AE /* SMART3QA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SMART3QA.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,6 +120,10 @@
 		427016AA13D5CC96003659AE /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		427016AB13D5CCA6003659AE /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		42838BC113DFF80F00389D26 /* questionbaloon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = questionbaloon.png; sourceTree = "<group>"; };
+		42A4882C13E09E09007316B4 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
+		42A4883613E0AE46007316B4 /* tabledivider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabledivider.png; sourceTree = "<group>"; };
+		42A4883813E0AED9007316B4 /* QuestionDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = QuestionDetailsController.h; sourceTree = "<group>"; };
+		42A4883913E0AEE6007316B4 /* QuestionDetailsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionDetailsController.m; sourceTree = "<group>"; };
 		42EA7BC113D88FD400F2B842 /* users@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "users@2x.png"; path = "../users@2x.png"; sourceTree = "<group>"; };
 		42EA7BC313D8978C00F2B842 /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = facebook.png; path = ../facebook.png; sourceTree = "<group>"; };
 		42EA7BC413D8978C00F2B842 /* facebook@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "facebook@2x.png"; path = "../facebook@2x.png"; sourceTree = "<group>"; };
@@ -150,6 +154,7 @@
 		4270164413D5C61D003659AE = {
 			isa = PBXGroup;
 			children = (
+				42A4882C13E09E09007316B4 /* Entitlements.plist */,
 				4270165913D5C61D003659AE /* SMART3QA */,
 				4270165213D5C61D003659AE /* Frameworks */,
 				4270165013D5C61D003659AE /* Products */,
@@ -186,16 +191,16 @@
 				421F65CB13D6F67D00CC6D4C /* Question.m */,
 				425B139913D6FC940034F104 /* QuestionViewCell.h */,
 				425B139B13D6FCC60034F104 /* QuestionViewCell.m */,
-				4217075613D73E7900F18BE6 /* QuestionViewController.h */,
-				4217075713D73E9B00F18BE6 /* QuestionViewController.m */,
+				42A4883813E0AED9007316B4 /* QuestionDetailsController.h */,
+				42A4883913E0AEE6007316B4 /* QuestionDetailsController.m */,
 				4270167313D5C61F003659AE /* UsersViewController.h */,
 				4270167513D5C61F003659AE /* UsersViewController.m */,
 				427016AA13D5CC96003659AE /* User.h */,
 				427016AB13D5CCA6003659AE /* User.m */,
 				426C6B6513D647E600A7B59C /* UserViewCell.h */,
 				426C6B6713D6482B00A7B59C /* UserViewCell.m */,
-				426860B313D85273009C9D63 /* UserViewController.h */,
-				426860B413D85280009C9D63 /* UserViewController.m */,
+				426860B313D85273009C9D63 /* UserDetailsController.h */,
+				426860B413D85280009C9D63 /* UserDetailsController.m */,
 				4270166513D5C61E003659AE /* MainStoryboard_iPhone.storyboard */,
 				4270166813D5C61E003659AE /* MainStoryboard_iPad.storyboard */,
 				4270165A13D5C61D003659AE /* Supporting Files */,
@@ -214,6 +219,7 @@
 				42EA7BC713D8978C00F2B842 /* location.png */,
 				42EA7BC813D8978C00F2B842 /* location@2x.png */,
 				42838BC113DFF80F00389D26 /* questionbaloon.png */,
+				42A4883613E0AE46007316B4 /* tabledivider.png */,
 				42EA7BC913D8978C00F2B842 /* twitter.png */,
 				42EA7BCA13D8978C00F2B842 /* twitter@2x.png */,
 				42EA7BCB13D8978D00F2B842 /* www.png */,
@@ -339,6 +345,8 @@
 				42EA7BD513D8978D00F2B842 /* www.png in Resources */,
 				42EA7BD613D8978D00F2B842 /* www@2x.png in Resources */,
 				42838BC213DFF80F00389D26 /* questionbaloon.png in Resources */,
+				42A4882D13E09E09007316B4 /* Entitlements.plist in Resources */,
+				42A4883713E0AE46007316B4 /* tabledivider.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,8 +377,8 @@
 				426C6B6813D6482B00A7B59C /* UserViewCell.m in Sources */,
 				421F65CC13D6F67D00CC6D4C /* Question.m in Sources */,
 				425B139C13D6FCC60034F104 /* QuestionViewCell.m in Sources */,
-				4217075813D73E9B00F18BE6 /* QuestionViewController.m in Sources */,
-				426860B513D85280009C9D63 /* UserViewController.m in Sources */,
+				426860B513D85280009C9D63 /* UserDetailsController.m in Sources */,
+				42A4883A13E0AEE6007316B4 /* QuestionDetailsController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,6 +481,38 @@
 			};
 			name = Release;
 		};
+		42A4882E13E09EBB007316B4 /* Ad Hoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = "Ad Hoc";
+		};
+		42A4882F13E09EBB007316B4 /* Ad Hoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SMART3QA/SMART3QA-Prefix.pch";
+				INFOPLIST_FILE = "SMART3QA/SMART3QA-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = "Ad Hoc";
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -481,6 +521,7 @@
 			buildConfigurations = (
 				4270167B13D5C61F003659AE /* Debug */,
 				4270167C13D5C61F003659AE /* Release */,
+				42A4882E13E09EBB007316B4 /* Ad Hoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -490,6 +531,7 @@
 			buildConfigurations = (
 				4270167E13D5C61F003659AE /* Debug */,
 				4270167F13D5C61F003659AE /* Release */,
+				42A4882F13E09EBB007316B4 /* Ad Hoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
