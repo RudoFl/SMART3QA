@@ -1,13 +1,13 @@
 //
-//  SecondViewController.h
+//  UserViewController.h
 //  SMART3QA
 //
-//  Created by Ruud Puts on 7/19/11.
+//  Created by Ruud Puts on 7/27/11.
 //  Copyright 2011 Fontys Hogeschool ICT. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface SecondViewController : UIViewController
+@interface UserViewController : UIViewController
 
 @end
