@@ -9,12 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "Question.h"
 #import "User.h"
+#import "Tag.h"
 
 @interface SMART3QAAppDelegate : UIResponder <UIApplicationDelegate>
 {    
     NSString *hostname;
-    NSArray *questions;
-    NSArray *users;
+    NSArray *questions, *users, *tags;
 }
 
 @property (strong, nonatomic) UIWindow *window;
@@ -25,13 +25,18 @@
 - (NSDate *)dateFromString:(NSString *)string;
 - (NSString *)timeSinceDate:(NSDate *)date;
 - (void)downloadQuestions;
+- (void)downloadDataForQuestion:(NSInteger)questionId;
 - (NSArray *)getQuestions;
 - (Question *)getQuestionForId:(NSInteger)questionid;
 - (Question *)getQuestionForIndex:(NSInteger)index;
 - (void)downloadUsers;
 - (NSArray *)getUsers;
 - (User *)getUserForId:(NSInteger)userid;
-- (Question *)getUserForIndex:(NSInteger)index;
+- (User *)getUserForIndex:(NSInteger)index;
+- (void)downloadTags;
+- (NSArray *)getTags;
+- (Tag *)getTagForId:(NSInteger)tagid;
+- (Tag *)getTagForIndex:(NSInteger)index;
 
 - (void)describeDictionary:(NSDictionary *)dict;
 

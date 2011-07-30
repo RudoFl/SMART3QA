@@ -1,9 +1,8 @@
-#import "UsersViewController.h"
-#import "UserViewCell.h"
-#import "User.h"
-#import "UserDetailsController.h"
+#import "TagsViewController.h"
+#import "TagViewCell.h"
+#import "Tag.h"
 
-@implementation UsersViewController
+@implementation TagsViewController
 
 - (void)didReceiveMemoryWarning
 {
@@ -28,36 +27,36 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section 
 {
-    return [[app getUsers] count];
+    return [[app getTags] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
     
-    UserViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    TagViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil)
     {
-        cell = [[UserViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[TagViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-    User *selectedUser = [app getUserForIndex:[indexPath row]];
-    [cell loadUser:selectedUser];
+    Tag *selectedTag = [app getTagForIndex:[indexPath row]];
+    [cell loadTag:selectedTag];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    User *selectedUser = [app getUserForIndex:[indexPath row]];
-    UserDetailsController *userView = [[UserDetailsController alloc] init];
-    [userView setup];
-    [self.navigationController pushViewController:userView animated:YES];
-    [userView loadUser:selectedUser];
+    Tag *selectedTag = [app getTagForIndex:[indexPath row]];
+    //TagDetailsController *tagView = [[TagDetailsController alloc] init];
+    //[tagView setup];
+    //[self.navigationController pushViewController:tagView animated:YES];
+    //[tagView loadTag:selectedTag];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 70;
+    return 40;
 }
 
 - (void)viewWillAppear:(BOOL)animated

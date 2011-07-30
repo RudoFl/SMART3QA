@@ -5,6 +5,7 @@
 
 - (void)setup
 {   
+    app = (SMART3QAAppDelegate*)[[UIApplication sharedApplication] delegate];
     self.view.backgroundColor = [UIColor whiteColor];
     
     titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, 5, 310, 30)];
@@ -24,6 +25,7 @@
 
 - (void)loadQuestion:(Question *)question
 {
+    [app downloadDataForQuestion:[question getQuestionId]];
     [self setTitle:[question getTitle]];
     [titleLabel setText:[question getTitle]];
     [bodyLabel setText:[question getBody]];

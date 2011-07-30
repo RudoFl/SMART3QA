@@ -50,8 +50,8 @@
     Question *selectedQuestion = [app getQuestionForIndex:[indexPath row]];
     QuestionDetailsController *questionView = [[QuestionDetailsController alloc] init];
     [questionView setup];
-    [questionView loadQuestion:selectedQuestion];
     [self.navigationController pushViewController:questionView animated:YES];
+    [questionView loadQuestion:selectedQuestion];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
