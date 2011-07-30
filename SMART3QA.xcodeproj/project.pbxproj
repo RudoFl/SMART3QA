@@ -43,10 +43,13 @@
 		427016A413D5C7E7003659AE /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = 4270169713D5C7E7003659AE /* SBJsonUTF8Stream.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		427016A513D5C7E7003659AE /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4270169913D5C7E7003659AE /* SBJsonWriter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		427016AC13D5CCA6003659AE /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 427016AB13D5CCA6003659AE /* User.m */; };
+		4281F30513E44FFD005F661D /* comingsoon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4281F30413E44FFD005F661D /* comingsoon.jpg */; };
+		4281F30813E4558A005F661D /* questioncount.png in Resources */ = {isa = PBXBuildFile; fileRef = 4281F30713E4558A005F661D /* questioncount.png */; };
 		42838BC213DFF80F00389D26 /* questionbaloon.png in Resources */ = {isa = PBXBuildFile; fileRef = 42838BC113DFF80F00389D26 /* questionbaloon.png */; };
 		42A4882D13E09E09007316B4 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 42A4882C13E09E09007316B4 /* Entitlements.plist */; };
 		42A4883713E0AE46007316B4 /* tabledivider.png in Resources */ = {isa = PBXBuildFile; fileRef = 42A4883613E0AE46007316B4 /* tabledivider.png */; };
 		42A4883A13E0AEE6007316B4 /* QuestionDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A4883913E0AEE6007316B4 /* QuestionDetailsController.m */; };
+		42BC3F4713E442AF00A7C96C /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 42BC3F4613E442AF00A7C96C /* Tag.m */; };
 		42EA7BC213D88FD400F2B842 /* users@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42EA7BC113D88FD400F2B842 /* users@2x.png */; };
 		42EA7BCD13D8978D00F2B842 /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 42EA7BC313D8978C00F2B842 /* facebook.png */; };
 		42EA7BCE13D8978D00F2B842 /* facebook@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42EA7BC413D8978C00F2B842 /* facebook@2x.png */; };
@@ -58,6 +61,8 @@
 		42EA7BD413D8978D00F2B842 /* twitter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42EA7BCA13D8978C00F2B842 /* twitter@2x.png */; };
 		42EA7BD513D8978D00F2B842 /* www.png in Resources */ = {isa = PBXBuildFile; fileRef = 42EA7BCB13D8978D00F2B842 /* www.png */; };
 		42EA7BD613D8978D00F2B842 /* www@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42EA7BCC13D8978D00F2B842 /* www@2x.png */; };
+		42F749BE13E44563004D4D70 /* TagsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F749BD13E44563004D4D70 /* TagsViewController.m */; };
+		42F749C113E4470D004D4D70 /* TagViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F749C013E4470D004D4D70 /* TagViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,7 +77,7 @@
 		421F65CB13D6F67D00CC6D4C /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
 		425B139913D6FC940034F104 /* QuestionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionViewCell.h; sourceTree = "<group>"; };
 		425B139B13D6FCC60034F104 /* QuestionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionViewCell.m; sourceTree = "<group>"; };
-		426860B313D85273009C9D63 /* UserDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = UserDetailsController.h; sourceTree = "<group>"; };
+		426860B313D85273009C9D63 /* UserDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDetailsController.h; sourceTree = "<group>"; };
 		426860B413D85280009C9D63 /* UserDetailsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDetailsController.m; sourceTree = "<group>"; };
 		426C6B6513D647E600A7B59C /* UserViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserViewCell.h; sourceTree = "<group>"; };
 		426C6B6713D6482B00A7B59C /* UserViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserViewCell.m; sourceTree = "<group>"; };
@@ -119,11 +124,15 @@
 		4270169913D5C7E7003659AE /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 		427016AA13D5CC96003659AE /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		427016AB13D5CCA6003659AE /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		4281F30413E44FFD005F661D /* comingsoon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = comingsoon.jpg; sourceTree = "<group>"; };
+		4281F30713E4558A005F661D /* questioncount.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = questioncount.png; sourceTree = "<group>"; };
 		42838BC113DFF80F00389D26 /* questionbaloon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = questionbaloon.png; sourceTree = "<group>"; };
 		42A4882C13E09E09007316B4 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		42A4883613E0AE46007316B4 /* tabledivider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabledivider.png; sourceTree = "<group>"; };
-		42A4883813E0AED9007316B4 /* QuestionDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = QuestionDetailsController.h; sourceTree = "<group>"; };
+		42A4883813E0AED9007316B4 /* QuestionDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionDetailsController.h; sourceTree = "<group>"; };
 		42A4883913E0AEE6007316B4 /* QuestionDetailsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionDetailsController.m; sourceTree = "<group>"; };
+		42BC3F4413E4423800A7C96C /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tag.h; sourceTree = "<group>"; };
+		42BC3F4613E442AF00A7C96C /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tag.m; sourceTree = "<group>"; };
 		42EA7BC113D88FD400F2B842 /* users@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "users@2x.png"; path = "../users@2x.png"; sourceTree = "<group>"; };
 		42EA7BC313D8978C00F2B842 /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = facebook.png; path = ../facebook.png; sourceTree = "<group>"; };
 		42EA7BC413D8978C00F2B842 /* facebook@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "facebook@2x.png"; path = "../facebook@2x.png"; sourceTree = "<group>"; };
@@ -135,6 +144,10 @@
 		42EA7BCA13D8978C00F2B842 /* twitter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "twitter@2x.png"; path = "../twitter@2x.png"; sourceTree = "<group>"; };
 		42EA7BCB13D8978D00F2B842 /* www.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = www.png; path = ../www.png; sourceTree = "<group>"; };
 		42EA7BCC13D8978D00F2B842 /* www@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "www@2x.png"; path = "../www@2x.png"; sourceTree = "<group>"; };
+		42F749BB13E4452B004D4D70 /* TagsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagsViewController.h; sourceTree = "<group>"; };
+		42F749BD13E44563004D4D70 /* TagsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagsViewController.m; sourceTree = "<group>"; };
+		42F749BF13E446B3004D4D70 /* TagViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagViewCell.h; sourceTree = "<group>"; };
+		42F749C013E4470D004D4D70 /* TagViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,25 +198,32 @@
 				4270168013D5C7E7003659AE /* SBJSON */,
 				4270166213D5C61E003659AE /* SMART3QAAppDelegate.h */,
 				4270166313D5C61E003659AE /* SMART3QAAppDelegate.m */,
-				4270166B13D5C61E003659AE /* QuestionsViewController.h */,
-				4270166D13D5C61E003659AE /* QuestionsViewController.m */,
 				421F65CA13D6F67400CC6D4C /* Question.h */,
 				421F65CB13D6F67D00CC6D4C /* Question.m */,
+				4270166B13D5C61E003659AE /* QuestionsViewController.h */,
+				4270166D13D5C61E003659AE /* QuestionsViewController.m */,
 				425B139913D6FC940034F104 /* QuestionViewCell.h */,
 				425B139B13D6FCC60034F104 /* QuestionViewCell.m */,
 				42A4883813E0AED9007316B4 /* QuestionDetailsController.h */,
 				42A4883913E0AEE6007316B4 /* QuestionDetailsController.m */,
-				4270167313D5C61F003659AE /* UsersViewController.h */,
-				4270167513D5C61F003659AE /* UsersViewController.m */,
 				427016AA13D5CC96003659AE /* User.h */,
 				427016AB13D5CCA6003659AE /* User.m */,
+				4270167313D5C61F003659AE /* UsersViewController.h */,
+				4270167513D5C61F003659AE /* UsersViewController.m */,
 				426C6B6513D647E600A7B59C /* UserViewCell.h */,
 				426C6B6713D6482B00A7B59C /* UserViewCell.m */,
 				426860B313D85273009C9D63 /* UserDetailsController.h */,
 				426860B413D85280009C9D63 /* UserDetailsController.m */,
+				42BC3F4413E4423800A7C96C /* Tag.h */,
+				42BC3F4613E442AF00A7C96C /* Tag.m */,
+				42F749BB13E4452B004D4D70 /* TagsViewController.h */,
+				42F749BD13E44563004D4D70 /* TagsViewController.m */,
+				42F749BF13E446B3004D4D70 /* TagViewCell.h */,
+				42F749C013E4470D004D4D70 /* TagViewCell.m */,
 				4270166513D5C61E003659AE /* MainStoryboard_iPhone.storyboard */,
 				4270166813D5C61E003659AE /* MainStoryboard_iPad.storyboard */,
 				4270165A13D5C61D003659AE /* Supporting Files */,
+				4281F30413E44FFD005F661D /* comingsoon.jpg */,
 				421F658A13D6F35400CC6D4C /* badges.png */,
 				421F658B13D6F35400CC6D4C /* badges@2x.png */,
 				421F658E13D6F35400CC6D4C /* questions.png */,
@@ -218,6 +238,7 @@
 				42EA7BC613D8978C00F2B842 /* google@2x.png */,
 				42EA7BC713D8978C00F2B842 /* location.png */,
 				42EA7BC813D8978C00F2B842 /* location@2x.png */,
+				4281F30713E4558A005F661D /* questioncount.png */,
 				42838BC113DFF80F00389D26 /* questionbaloon.png */,
 				42A4883613E0AE46007316B4 /* tabledivider.png */,
 				42EA7BC913D8978C00F2B842 /* twitter.png */,
@@ -347,6 +368,8 @@
 				42838BC213DFF80F00389D26 /* questionbaloon.png in Resources */,
 				42A4882D13E09E09007316B4 /* Entitlements.plist in Resources */,
 				42A4883713E0AE46007316B4 /* tabledivider.png in Resources */,
+				4281F30513E44FFD005F661D /* comingsoon.jpg in Resources */,
+				4281F30813E4558A005F661D /* questioncount.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,6 +402,9 @@
 				425B139C13D6FCC60034F104 /* QuestionViewCell.m in Sources */,
 				426860B513D85280009C9D63 /* UserDetailsController.m in Sources */,
 				42A4883A13E0AEE6007316B4 /* QuestionDetailsController.m in Sources */,
+				42BC3F4713E442AF00A7C96C /* Tag.m in Sources */,
+				42F749BE13E44563004D4D70 /* TagsViewController.m in Sources */,
+				42F749C113E4470D004D4D70 /* TagViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
