@@ -1,6 +1,7 @@
 #import "TagsViewController.h"
 #import "TagViewCell.h"
 #import "Tag.h"
+#import "TagDetailsController.h"
 
 @implementation TagsViewController
 
@@ -47,10 +48,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Tag *selectedTag = [app getTagForIndex:[indexPath row]];
-    //TagDetailsController *tagView = [[TagDetailsController alloc] init];
-    //[tagView setup];
-    //[self.navigationController pushViewController:tagView animated:YES];
-    //[tagView loadTag:selectedTag];
+    TagDetailsController *tagView = [[TagDetailsController alloc] init];
+    [tagView setup];
+    [self.navigationController pushViewController:tagView animated:YES];
+    [tagView loadTag:selectedTag];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 

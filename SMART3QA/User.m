@@ -48,6 +48,15 @@
     return about;
 }
 
+- (void) setProfile:(NSString *)input
+{
+    profile = input;
+}
+- (NSString *) getProfile
+{
+    return profile;
+}
+
 - (void) setUrl:(NSURL *)input
 {
     url = input;
@@ -55,6 +64,33 @@
 - (NSURL *) getUrl
 {
     return url;
+}
+
+- (void) setTwitterUrl:(NSURL *)input
+{
+    twitterurl = input;
+}
+- (NSURL *) getTwitterUrl
+{
+    return twitterurl;
+}
+
+- (void) setGoogleUrl:(NSURL *)input
+{
+    googleurl = input;
+}
+- (NSURL *) getGoogleUrl
+{
+    return googleurl;
+}
+
+- (void) setFacebookUrl:(NSURL *)input
+{
+    facebookurl = input;
+}
+- (NSURL *) getFacebookUrl
+{
+    return facebookurl;
 }
 
 - (void) setBirthday:(NSDate *)input

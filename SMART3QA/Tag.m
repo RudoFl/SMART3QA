@@ -29,4 +29,23 @@
     return name;
 }
 
+- (void)setExcert:(NSString *)input
+{
+    excert = input;
+}
+
+- (NSString *)getExcert
+{
+    return excert;
+}
+
+- (void)setWiki:(NSString *)input
+{
+    wiki = input;
+}
+- (NSString *)getWiki
+{
+    return wiki;
+}
+
 @end

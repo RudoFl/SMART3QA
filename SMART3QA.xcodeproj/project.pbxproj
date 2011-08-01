@@ -15,6 +15,7 @@
 		421F65A313D6F35400CC6D4C /* tags@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 421F659313D6F35400CC6D4C /* tags@2x.png */; };
 		421F65A613D6F35400CC6D4C /* users.png in Resources */ = {isa = PBXBuildFile; fileRef = 421F659613D6F35400CC6D4C /* users.png */; };
 		421F65CC13D6F67D00CC6D4C /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 421F65CB13D6F67D00CC6D4C /* Question.m */; };
+		4246A5F613E6D1E500A3B04F /* avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = 4246A5F513E6D1E500A3B04F /* avatar.png */; };
 		425B139C13D6FCC60034F104 /* QuestionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 425B139B13D6FCC60034F104 /* QuestionViewCell.m */; };
 		426860B513D85280009C9D63 /* UserDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 426860B413D85280009C9D63 /* UserDetailsController.m */; };
 		426C6B6813D6482B00A7B59C /* UserViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 426C6B6713D6482B00A7B59C /* UserViewCell.m */; };
@@ -50,6 +51,7 @@
 		42A4883713E0AE46007316B4 /* tabledivider.png in Resources */ = {isa = PBXBuildFile; fileRef = 42A4883613E0AE46007316B4 /* tabledivider.png */; };
 		42A4883A13E0AEE6007316B4 /* QuestionDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A4883913E0AEE6007316B4 /* QuestionDetailsController.m */; };
 		42BC3F4713E442AF00A7C96C /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 42BC3F4613E442AF00A7C96C /* Tag.m */; };
+		42CCD8FA13E472A000EFC1F3 /* TagDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42CCD8F913E472A000EFC1F3 /* TagDetailsController.m */; };
 		42EA7BC213D88FD400F2B842 /* users@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42EA7BC113D88FD400F2B842 /* users@2x.png */; };
 		42EA7BCD13D8978D00F2B842 /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 42EA7BC313D8978C00F2B842 /* facebook.png */; };
 		42EA7BCE13D8978D00F2B842 /* facebook@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42EA7BC413D8978C00F2B842 /* facebook@2x.png */; };
@@ -75,6 +77,7 @@
 		421F659613D6F35400CC6D4C /* users.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = users.png; path = ../users.png; sourceTree = "<group>"; };
 		421F65CA13D6F67400CC6D4C /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
 		421F65CB13D6F67D00CC6D4C /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
+		4246A5F513E6D1E500A3B04F /* avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar.png; sourceTree = "<group>"; };
 		425B139913D6FC940034F104 /* QuestionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionViewCell.h; sourceTree = "<group>"; };
 		425B139B13D6FCC60034F104 /* QuestionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionViewCell.m; sourceTree = "<group>"; };
 		426860B313D85273009C9D63 /* UserDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDetailsController.h; sourceTree = "<group>"; };
@@ -126,6 +129,7 @@
 		427016AB13D5CCA6003659AE /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		4281F30413E44FFD005F661D /* comingsoon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = comingsoon.jpg; sourceTree = "<group>"; };
 		4281F30713E4558A005F661D /* questioncount.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = questioncount.png; sourceTree = "<group>"; };
+		4281F30913E471CF005F661D /* TagDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagDetailsController.h; sourceTree = "<group>"; };
 		42838BC113DFF80F00389D26 /* questionbaloon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = questionbaloon.png; sourceTree = "<group>"; };
 		42A4882C13E09E09007316B4 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		42A4883613E0AE46007316B4 /* tabledivider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabledivider.png; sourceTree = "<group>"; };
@@ -133,6 +137,7 @@
 		42A4883913E0AEE6007316B4 /* QuestionDetailsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionDetailsController.m; sourceTree = "<group>"; };
 		42BC3F4413E4423800A7C96C /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tag.h; sourceTree = "<group>"; };
 		42BC3F4613E442AF00A7C96C /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tag.m; sourceTree = "<group>"; };
+		42CCD8F913E472A000EFC1F3 /* TagDetailsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagDetailsController.m; sourceTree = "<group>"; };
 		42EA7BC113D88FD400F2B842 /* users@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "users@2x.png"; path = "../users@2x.png"; sourceTree = "<group>"; };
 		42EA7BC313D8978C00F2B842 /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = facebook.png; path = ../facebook.png; sourceTree = "<group>"; };
 		42EA7BC413D8978C00F2B842 /* facebook@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "facebook@2x.png"; path = "../facebook@2x.png"; sourceTree = "<group>"; };
@@ -220,10 +225,13 @@
 				42F749BD13E44563004D4D70 /* TagsViewController.m */,
 				42F749BF13E446B3004D4D70 /* TagViewCell.h */,
 				42F749C013E4470D004D4D70 /* TagViewCell.m */,
+				4281F30913E471CF005F661D /* TagDetailsController.h */,
+				42CCD8F913E472A000EFC1F3 /* TagDetailsController.m */,
 				4270166513D5C61E003659AE /* MainStoryboard_iPhone.storyboard */,
 				4270166813D5C61E003659AE /* MainStoryboard_iPad.storyboard */,
 				4270165A13D5C61D003659AE /* Supporting Files */,
 				4281F30413E44FFD005F661D /* comingsoon.jpg */,
+				4246A5F513E6D1E500A3B04F /* avatar.png */,
 				421F658A13D6F35400CC6D4C /* badges.png */,
 				421F658B13D6F35400CC6D4C /* badges@2x.png */,
 				421F658E13D6F35400CC6D4C /* questions.png */,
@@ -370,6 +378,7 @@
 				42A4883713E0AE46007316B4 /* tabledivider.png in Resources */,
 				4281F30513E44FFD005F661D /* comingsoon.jpg in Resources */,
 				4281F30813E4558A005F661D /* questioncount.png in Resources */,
+				4246A5F613E6D1E500A3B04F /* avatar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,6 +414,7 @@
 				42BC3F4713E442AF00A7C96C /* Tag.m in Sources */,
 				42F749BE13E44563004D4D70 /* TagsViewController.m in Sources */,
 				42F749C113E4470D004D4D70 /* TagViewCell.m in Sources */,
+				42CCD8FA13E472A000EFC1F3 /* TagDetailsController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

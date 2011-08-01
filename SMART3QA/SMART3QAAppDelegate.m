@@ -19,9 +19,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    //hostname = [[NSString alloc]initWithString:@"http://192.168.1.103"]; //wifi ruud
-    //hostname = [[NSString alloc]initWithString:@"http://192.168.0.10"]; //wifi upc
-    hostname = [[NSString alloc]initWithString:@"http://192.168.0.27"]; //kabel zolder
+    hostname = [[NSString alloc]initWithString:@"http://192.168.1.103"]; //wifi ruud
+    hostname = [[NSString alloc]initWithString:@"http://192.168.0.10"]; //wifi upc
+    //hostname = [[NSString alloc]initWithString:@"http://192.168.0.27"]; //kabel zolder
     //hostname = [[NSString alloc]initWithString:@"http://vanderwerf.xs4all.nl"];
     NSLog(@"Download/Parsing started");
     [self downloadQuestions];
@@ -118,19 +118,19 @@
     int weeks = seconds / 604800;
     if(weeks > 0)
     {
-        return [NSString stringWithFormat:@"%d weeks ago", weeks];
+        return [NSString stringWithFormat:@"%d weeks", weeks];
     } else if(days > 0)
     {
-        return [NSString stringWithFormat:@"%d days ago", days];
+        return [NSString stringWithFormat:@"%d days", days];
     } else if(hours > 0)
     {
-        return [NSString stringWithFormat:@"%d hours ago", hours];
+        return [NSString stringWithFormat:@"%d hours", hours];
     } else if(minutes > 0)
     {
-        return [NSString stringWithFormat:@"%d minutes ago", minutes];
+        return [NSString stringWithFormat:@"%d minutes", minutes];
     } else
     {
-        return [NSString stringWithFormat:@"%d seconds ago", seconds];
+        return [NSString stringWithFormat:@"%d seconds", seconds];
     }
 }
 
@@ -145,7 +145,7 @@
     
     SBJsonParser *parser = [[SBJsonParser alloc]init];
     questions = [[parser objectWithString:myRawJSON error:nil] copy];
-    //NSLog(@"QuestionsAfterDowload: %d", [questions count]);
+    NSLog(@"QuestionsAfterDowload: %d", [questions count]);
     
     NSMutableArray *parsedQuestions = [NSMutableArray array];
     for (NSDictionary *dict in questions)
@@ -159,7 +159,7 @@
         [parsedQuestions addObject:newQuestion];
     }
     questions = [parsedQuestions copy];
-    //NSLog(@"QuestionsAfterParse: %d", [questions count]);
+    NSLog(@"QuestionsAfterParse: %d", [questions count]);
 }
 
 - (void)downloadDataForQuestion:(NSInteger)questionId
@@ -189,10 +189,28 @@
     return questions;
 }
 
-- (Question *)getQuestionForId:(NSInteger)questionid
+- (NSArray *)getQuestionsForUser:(NSInteger)userId
+{
+    NSMutableArray *questionsForUser = [[NSMutableArray alloc] initWithCapacity:[questions count]];
+    for(Question *q in questions)
+    {
+        if([q getUserId] == userId)
+        {
+            [questionsForUser addObject:q];
+        }
+    }
+    return [questionsForUser copy];
+}
+
+- (NSArray *)getQuestionsForTag:(NSInteger)tagId
+{
+    return nil;
+}
+
+- (Question *)getQuestionForId:(NSInteger)questionId
 {
     for(Question *q in questions){
-        if([q getQuestionId] == questionid)
+        if([q getQuestionId] == questionId)
         {
             return q;
         }
@@ -216,7 +234,6 @@
     
     SBJsonParser *parser = [[SBJsonParser alloc]init];
     users = [[parser objectWithString:myRawJSON error:nil] copy];
-    //NSLog(@"UsersAfterDownload: %d", [users count]);
     
     NSMutableArray *parsedUsers = [NSMutableArray array];
     for (NSDictionary *dict in users)
@@ -235,7 +252,44 @@
     }
     
     users = [parsedUsers copy];
-    //NSLog(@"UsersAfterParse: %d", [users count]);
+}
+
+- (void)downloadDataForUser:(NSInteger)userId
+{
+    NSString *myRawJSON = [[NSString alloc]initWithContentsOfURL:[[NSURL alloc] 
+                                                                  initWithString:[hostname 
+                                                                                  stringByAppendingString:[NSString stringWithFormat:@"/QA/users/view.json?id=%d", userId]]] 
+                                                        encoding:NSUTF8StringEncoding 
+                                                           error:nil];
+    
+    if ([myRawJSON length] == 0) 
+    {
+        return;
+    }
+    
+    SBJsonParser *parser = [[SBJsonParser alloc]init];
+    NSArray *userData = [[parser objectWithString:myRawJSON error:nil] copy];
+    
+    for (NSDictionary *dict in userData)
+    {
+        User *selectedUser = [self getUserForId:userId];
+        [selectedUser setCreated:[self dateFromString:[dict objectForKey:@"created"]]];
+        if(([dict objectForKey:@"twitterurl"] != [NSNull null]))
+        {
+            [selectedUser setTwitterUrl:[[NSURL alloc] initWithString:[dict objectForKey:@"twitterurl"]]];
+        }
+        if(([dict objectForKey:@"googleurl"] != [NSNull null]))
+        {
+            [selectedUser setGoogleUrl:[[NSURL alloc] initWithString:[dict objectForKey:@"googleurl"]]];
+        }
+        if(([dict objectForKey:@"facebookurl"] != [NSNull null]))
+        {
+            [selectedUser setFacebookUrl:[[NSURL alloc] initWithString:[dict objectForKey:@"facebookurl"]]];
+        }
+        [selectedUser setAbout:[dict objectForKey:@"about_me"]];
+        [selectedUser setProfile:[dict objectForKey:@"profile"]];
+        [selectedUser setUrl:[dict objectForKey:@"url"]];
+    }
 }
 
 - (NSArray *)getUsers
@@ -271,7 +325,6 @@
     
     SBJsonParser *parser = [[SBJsonParser alloc]init];
     tags = [[parser objectWithString:myRawJSON error:nil] copy];
-    //NSLog(@"TagsAfterDownload: %d", [tags count]);
     
     NSMutableArray *parsedTags = [NSMutableArray array];
     for (NSDictionary *dict in tags)
@@ -291,8 +344,31 @@
     }
     
     tags = [parsedTags copy];
-    //NSLog(@"TagsAfterParse: %d", [tags count]);
 }
+
+- (void)downloadDataForTag:(NSInteger)tagId
+{
+    NSString *myRawJSON = [[NSString alloc]initWithContentsOfURL:[[NSURL alloc] 
+                                                                  initWithString:[hostname 
+                                                                                  stringByAppendingString:[NSString stringWithFormat:@"/QA/tags/view.json?id=%d", tagId]]] 
+                                                        encoding:NSUTF8StringEncoding 
+                                                           error:nil];
+    
+    if ([myRawJSON length] == 0) 
+    {
+        return;
+    }
+    
+    SBJsonParser *parser = [[SBJsonParser alloc]init];
+    NSArray *tagData = [[parser objectWithString:myRawJSON error:nil] copy];    
+    for (NSDictionary *dict in tagData)
+    {
+        Tag *selectedTag = [self getTagForId:tagId];
+        [selectedTag setExcert:[dict objectForKey:@"excert"]];
+        [selectedTag setWiki:[dict objectForKey:@"wiki"]];
+    }
+}
+
 
 - (NSArray *)getTags
 {

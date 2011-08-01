@@ -3,8 +3,8 @@
 @interface User : NSObject
 {
     NSInteger userId, reputation;
-    NSString *name, *location, *about;
-    NSURL *url;
+    NSString *name, *location, *about, *profile;
+    NSURL *url, *twitterurl, *googleurl, *facebookurl;
     NSDate *birthday, *created;
     UIImage *avatar;
 }
@@ -24,8 +24,20 @@
 - (void) setAbout:(NSString *)input;
 - (NSString *) getAbout;
 
+- (void) setProfile:(NSString *)input;
+- (NSString *) getProfile;
+
 - (void) setUrl:(NSURL *)input;
 - (NSURL *) getUrl;
+
+- (void) setTwitterUrl:(NSURL *)input;
+- (NSURL *) getTwitterUrl;
+
+- (void) setGoogleUrl:(NSURL *)input;
+- (NSURL *) getGoogleUrl;
+
+- (void) setFacebookUrl:(NSURL *)input;
+- (NSURL *) getFacebookUrl;
 
 - (void) setBirthday:(NSDate *)input;
 - (NSDate *) getBirthday;

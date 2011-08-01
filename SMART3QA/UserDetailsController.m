@@ -1,78 +1,68 @@
 #import "UserDetailsController.h"
 #import "User.h"
 #import "SMART3QAAppDelegate.h"
+#import "QuestionsViewController.h"
 
 @implementation UserDetailsController
 
-- (void)setup
-{   
-    app = (SMART3QAAppDelegate*)[[UIApplication sharedApplication]delegate];
-    
-    self.view.backgroundColor = [UIColor whiteColor];
-    
-    avatarView = [[UIImageView alloc] initWithFrame:CGRectMake(5, 5, 100, 100)];
-    [self.view addSubview:avatarView];
-    
-    nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(avatarView.frame.origin.x + avatarView.frame.size.width + 10, 
-                                                          5, 
-                                                          200, 
-                                                          30)];
-    [nameLabel setFont:[UIFont boldSystemFontOfSize:24]];
-    [nameLabel setBackgroundColor:[UIColor clearColor]];
-    [self.view addSubview:nameLabel];
-    
-    createdLabel = [[UILabel alloc]initWithFrame:CGRectMake(avatarView.frame.origin.x + avatarView.frame.size.width + 10,
-                                                            nameLabel.frame.origin.y + nameLabel.frame.size.height,
-                                                            200, 
-                                                            20)];
-    [createdLabel setFont:[UIFont systemFontOfSize:16]];
-    [createdLabel setBackgroundColor:[UIColor clearColor]];
-    [self.view addSubview:createdLabel];
-    
-    UIImageView *locationImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"location.png"]];
-    locationImage.frame = CGRectMake(avatarView.frame.origin.x + avatarView.frame.size.width + 10, 
-                                     createdLabel.frame.origin.y + createdLabel.frame.size.height, 
-                                     locationImage.frame.size.width, 
-                                     locationImage.frame.size.height);
-    [self.view addSubview:locationImage];
-                    
-    locationLabel = [[UILabel alloc] initWithFrame:CGRectMake(locationImage.frame.origin.x + locationImage.frame.size.width + 5, 
-                                                              createdLabel.frame.origin.y + createdLabel.frame.size.height, 
-                                                              200, 
-                                                              20)];
-    [locationLabel setFont:[UIFont systemFontOfSize:16]];
-    [locationLabel setBackgroundColor:[UIColor clearColor]];
-    [self.view addSubview:locationLabel];
-    
-    UIImageView *twitterImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"twitter.png"]];
-    twitterImage.frame = CGRectMake(avatarView.frame.origin.x + avatarView.frame.size.width + 10, 
-                                     locationImage.frame.origin.y + locationImage.frame.size.height + 5, 
-                                     twitterImage.frame.size.width, 
-                                     twitterImage.frame.size.height);
-    [self.view addSubview:twitterImage];
-    
-    UIImageView *facebookImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"facebook.png"]];
-    facebookImage.frame = CGRectMake(twitterImage.frame.origin.x + twitterImage.frame.size.width + 10, 
-                                     locationImage.frame.origin.y + locationImage.frame.size.height + 5, 
-                                     facebookImage.frame.size.width, 
-                                     facebookImage.frame.size.height);
-    [self.view addSubview:facebookImage];
-    
-    UIImageView *googleImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"google.png"]];
-    googleImage.frame = CGRectMake(facebookImage.frame.origin.x + facebookImage.frame.size.width + 10, 
-                                     locationImage.frame.origin.y + locationImage.frame.size.height + 5, 
-                                     googleImage.frame.size.width, 
-                                     googleImage.frame.size.height);
-    [self.view addSubview:googleImage];
-}
-
 - (void)loadUser:(User *)user
 {
+    app = (SMART3QAAppDelegate*)[[UIApplication sharedApplication]delegate];
+    [app downloadDataForUser:[user getUserId]];
     [self setTitle:[user getName]];
-    [nameLabel setText:[user getName]];
-    [createdLabel setText:[app stringFromDate:[user getCreated]]];
-    [locationLabel setText:[user getLocation]];
+    
     [avatarView setImage:[app resizeImage:[user getAvatar] scaleToSize:CGSizeMake(100, 100)]];
+    [profileLabel setText:[user getProfile]];
+    [nameLabel setText:[user getName]];
+    [aboutLabel setText:[user getAbout]];
+    [createdLabel setText:[@"Member for " stringByAppendingString:[app timeSinceDate:[user getCreated]]]];
+    [locationButton setTitle:[user getLocation] forState:UIControlStateNormal];
+    [locationButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
+    [urlButton setTitle:[NSString stringWithFormat:@" %@", [user getUrl]] forState:UIControlStateNormal];
+    [urlButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
+    [userQuestions setTitle:[NSString stringWithFormat:@"Questions by %@",[user getName]] forState:UIControlStateNormal];
+    
+    CGRect avatarRect = avatarView.frame;
+    avatarRect.size.height = avatarRect.size.width;
+    avatarView.frame = avatarRect;
+    
+    thisuser = user;
+}
+
+- (IBAction)loadTwitter:(id)sender
+{
+    [[UIApplication sharedApplication] openURL:[thisuser getTwitterUrl]];
+}
+
+- (IBAction)loadGoogle:(id)sender
+{
+    [[UIApplication sharedApplication] openURL:[thisuser getGoogleUrl]];
+}
+
+- (IBAction)loadFacebook:(id)sender
+{
+    [[UIApplication sharedApplication] openURL:[thisuser getFacebookUrl]];
+}
+
+- (IBAction)loadUrl:(id)sender
+{
+    /*
+     this should be
+     [[UIApplication sharedApplication] openURL:[thisuser getUrl]];
+     */
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", [thisuser getUrl]]]];
+}
+
+- (IBAction)loadLocation:(id)sender
+{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://maps.google.com/maps?q=%@", [thisuser getLocation]]]];
+}
+
+- (IBAction)showQuestions:(id)sender
+{
+    QuestionsViewController *questionView = [self.storyboard instantiateViewControllerWithIdentifier:@"QuestionsView"];
+    [self.navigationController pushViewController:questionView animated:YES];
+    [questionView loadQuestionsForUserId:[thisuser getUserId]];
 }
 
 @end

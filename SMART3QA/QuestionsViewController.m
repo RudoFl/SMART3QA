@@ -18,6 +18,7 @@
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     [super viewDidLoad];
     app = (SMART3QAAppDelegate*) [[UIApplication sharedApplication] delegate];
+    questions = [app getQuestions];
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
 
@@ -28,7 +29,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section 
 {
-    return [[app getQuestions] count];
+    return [questions count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -40,18 +41,16 @@
     {
         cell = [[QuestionViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-    Question *selectedQuestion = [app getQuestionForIndex:[indexPath row]];
-    [cell loadQuestion:selectedQuestion];
+    [cell loadQuestion:[questions objectAtIndex:[indexPath row]]];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Question *selectedQuestion = [app getQuestionForIndex:[indexPath row]];
     QuestionDetailsController *questionView = [[QuestionDetailsController alloc] init];
     [questionView setup];
     [self.navigationController pushViewController:questionView animated:YES];
-    [questionView loadQuestion:selectedQuestion];
+    [questionView loadQuestion:[questions objectAtIndex:[indexPath row]]];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
@@ -88,6 +87,17 @@
     } else {
         return YES;
     }
+}
+
+- (void)loadQuestionsForUserId:(NSInteger)userId
+{
+    questions = [app getQuestionsForUser:userId];
+}
+
+
+- (void)loadQuestionsForTagId:(NSInteger)tagId
+{    
+    questions = [app getQuestionsForUser:tagId];
 }
 
 @end

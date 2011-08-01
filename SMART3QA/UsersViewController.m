@@ -48,8 +48,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     User *selectedUser = [app getUserForIndex:[indexPath row]];
-    UserDetailsController *userView = [[UserDetailsController alloc] init];
-    [userView setup];
+    UserDetailsController *userView = [self.storyboard instantiateViewControllerWithIdentifier:@"UserDetails"];
     [self.navigationController pushViewController:userView animated:YES];
     [userView loadUser:selectedUser];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

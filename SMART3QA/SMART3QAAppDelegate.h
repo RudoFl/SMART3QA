@@ -27,13 +27,17 @@
 - (void)downloadQuestions;
 - (void)downloadDataForQuestion:(NSInteger)questionId;
 - (NSArray *)getQuestions;
-- (Question *)getQuestionForId:(NSInteger)questionid;
+- (NSArray *)getQuestionsForUser:(NSInteger)userId;
+- (NSArray *)getQuestionsForTag:(NSInteger)tagId;
+- (Question *)getQuestionForId:(NSInteger)questionId;
 - (Question *)getQuestionForIndex:(NSInteger)index;
 - (void)downloadUsers;
+- (void)downloadDataForUser:(NSInteger)userId;
 - (NSArray *)getUsers;
 - (User *)getUserForId:(NSInteger)userid;
 - (User *)getUserForIndex:(NSInteger)index;
 - (void)downloadTags;
+- (void)downloadDataForTag:(NSInteger)tagId;
 - (NSArray *)getTags;
 - (Tag *)getTagForId:(NSInteger)tagid;
 - (Tag *)getTagForIndex:(NSInteger)index;

@@ -85,7 +85,7 @@
     [answerCountLabel setText: [NSString stringWithFormat:@"%d", [question getAnswerCount]]];
     [titleLabel setText: [question getTitle]];
     [userLabel setText: [[NSString stringWithString:@"By: "] stringByAppendingString:[[app getUserForId:[question getUserId]] getName]]];
-    [createdLabel setText:[app timeSinceDate:[question getCreated]]];
+    [createdLabel setText:[[app timeSinceDate:[question getCreated]] stringByAppendingString:@" ago"]];
 }
 
 @end
