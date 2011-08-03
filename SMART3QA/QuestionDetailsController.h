@@ -3,11 +3,11 @@
 #import "SMART3QAAppDelegate.h"
 
 @interface QuestionDetailsController : UIViewController {
-    UILabel *titleLabel, *bodyLabel;
+    IBOutlet UILabel *titleLabel, *bodyLabel, *tagsLabel;
+    IBOutlet UIScrollView *scrollView;
     SMART3QAAppDelegate *app;
 }
 
-- (void)setup;
 - (void)loadQuestion:(Question *)question;
 
 @end

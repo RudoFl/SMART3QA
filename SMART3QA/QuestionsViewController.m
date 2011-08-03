@@ -47,8 +47,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    QuestionDetailsController *questionView = [[QuestionDetailsController alloc] init];
-    [questionView setup];
+    QuestionDetailsController *questionView = [self.storyboard instantiateViewControllerWithIdentifier:@"QuestionDetails"];
     [self.navigationController pushViewController:questionView animated:YES];
     [questionView loadQuestion:[questions objectAtIndex:[indexPath row]]];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -97,7 +96,7 @@
 
 - (void)loadQuestionsForTagId:(NSInteger)tagId
 {    
-    questions = [app getQuestionsForUser:tagId];
+    questions = [app getQuestionsForTag:tagId];
 }
 
 @end

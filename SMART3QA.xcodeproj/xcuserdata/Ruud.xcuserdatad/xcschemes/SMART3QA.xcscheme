@@ -67,7 +67,8 @@
       buildConfiguration = "Debug">
    </AnalyzeAction>
    <ArchiveAction
-      buildConfiguration = "Ad Hoc"
+      buildConfiguration = "Release"
+      customArchiveName = "SMART3QA"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>

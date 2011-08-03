@@ -65,4 +65,13 @@
     return created;
 }
 
+- (void) setTags:(NSArray *)input
+{
+    tags = input;
+}
+- (NSArray *) getTags
+{
+    return tags;
+}
+
 @end

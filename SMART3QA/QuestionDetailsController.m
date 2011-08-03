@@ -3,24 +3,10 @@
 
 @implementation QuestionDetailsController
 
-- (void)setup
+- (void)viewDidLoad
 {   
+    [super viewDidLoad];
     app = (SMART3QAAppDelegate*)[[UIApplication sharedApplication] delegate];
-    self.view.backgroundColor = [UIColor whiteColor];
-    
-    titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, 5, 310, 30)];
-    [titleLabel setFont:[UIFont boldSystemFontOfSize:24]];
-    [titleLabel setBackgroundColor:[UIColor clearColor]];
-    [self.view addSubview:titleLabel];
-    
-    bodyLabel = [[UILabel alloc] initWithFrame:CGRectMake(titleLabel.frame.origin.x,
-                                                            titleLabel.frame.origin.y + titleLabel.frame.size.height + 5,
-                                                                310,
-                                                                0)];
-    [bodyLabel setFont:[UIFont systemFontOfSize:12]];
-    [bodyLabel setBackgroundColor:[UIColor clearColor]];
-    [bodyLabel setLineBreakMode:UILineBreakModeWordWrap];
-    [self.view addSubview:bodyLabel];
 }
 
 - (void)loadQuestion:(Question *)question
@@ -30,12 +16,25 @@
     [titleLabel setText:[question getTitle]];
     [bodyLabel setText:[question getBody]];
     CGSize labelsize = [[question getBody] sizeWithFont:bodyLabel.font 
-                                      constrainedToSize:CGSizeMake(310, 9999) 
+                                      constrainedToSize:CGSizeMake(bodyLabel.frame.size.width, 9999) 
                                           lineBreakMode:titleLabel.lineBreakMode];
     CGRect bodyRect = bodyLabel.frame;
     bodyRect.size.height = labelsize.height;
     bodyLabel.frame = bodyRect;
     [bodyLabel setNumberOfLines:labelsize.height / bodyLabel.font.lineHeight];
+    
+    NSString *tagString = @"";
+    for(int i = 0; i < [[question getTags] count]; i++)
+    {
+        NSString *tagId = [[question getTags]objectAtIndex:i];
+        NSString *tagName = [[app getTagForId:[tagId intValue]] getName];
+        tagString = [tagString stringByAppendingString:tagName];
+        tagString = [tagString stringByAppendingString:@" "];
+    }
+    [tagsLabel setText:tagString];
+    
+    [scrollView setScrollEnabled:YES];
+    [scrollView setContentSize:CGSizeMake(320, bodyLabel.frame.origin.y + bodyLabel.frame.size.height)];
 }
 
 @end

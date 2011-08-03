@@ -41,7 +41,6 @@
 - (NSArray *)getTags;
 - (Tag *)getTagForId:(NSInteger)tagid;
 - (Tag *)getTagForIndex:(NSInteger)index;
-
 - (void)describeDictionary:(NSDictionary *)dict;
 
 @end

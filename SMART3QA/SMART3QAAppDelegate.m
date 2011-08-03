@@ -1,11 +1,3 @@
-//
-//  SMART3QAAppDelegate.m
-//  SMART3QA
-//
-//  Created by Ruud Puts on 7/19/11.
-//  Copyright 2011 Fontys Hogeschool ICT. All rights reserved.
-//
-
 #import "SMART3QAAppDelegate.h"
 #import "SBJSON/SBJson.h"
 #import "Question.h"
@@ -19,10 +11,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    hostname = [[NSString alloc]initWithString:@"http://192.168.1.103"]; //wifi ruud
-    hostname = [[NSString alloc]initWithString:@"http://192.168.0.10"]; //wifi upc
+    //hostname = [[NSString alloc]initWithString:@"http://192.168.1.103"]; //wifi ruud
+    //hostname = [[NSString alloc]initWithString:@"http://192.168.0.10"]; //wifi upc
     //hostname = [[NSString alloc]initWithString:@"http://192.168.0.27"]; //kabel zolder
     //hostname = [[NSString alloc]initWithString:@"http://vanderwerf.xs4all.nl"];
+    hostname = [[NSString alloc]initWithString:@"http://smart3.fhict.com"];
     NSLog(@"Download/Parsing started");
     [self downloadQuestions];
     [self downloadUsers];
@@ -30,45 +23,6 @@
     NSLog(@"Download/Parsing finished");
     [self.window makeKeyAndVisible];
     return YES;
-}
-
-- (void)applicationWillResignActive:(UIApplication *)application
-{
-    /*
-     Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-     Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
-     */
-}
-
-- (void)applicationDidEnterBackground:(UIApplication *)application
-{
-    /*
-     Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
-     If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-     */
-}
-
-- (void)applicationWillEnterForeground:(UIApplication *)application
-{
-    /*
-     Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-     */
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
-    /*
-     Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-     */
-}
-
-- (void)applicationWillTerminate:(UIApplication *)application
-{
-    /*
-     Called when the application is about to terminate.
-     Save data if appropriate.
-     See also applicationDidEnterBackground:.
-     */
 }
 
 - (UIImage *)downloadImage:(NSURL *)url
@@ -156,6 +110,7 @@
         [newQuestion setUserId: [[dict objectForKey:@"user_id"] intValue]];
         [newQuestion setCreated:[self dateFromString:[dict objectForKey:@"created"]]];
         [newQuestion setAnswerCount:[[dict objectForKey:@"answer_count"] intValue]];
+        [newQuestion setTags:[dict objectForKey:@"tags"]];
         [parsedQuestions addObject:newQuestion];
     }
     questions = [parsedQuestions copy];
@@ -204,7 +159,19 @@
 
 - (NSArray *)getQuestionsForTag:(NSInteger)tagId
 {
-    return nil;
+    NSMutableArray *questionsForTag = [[NSMutableArray alloc] initWithCapacity:[questions count]];
+    for(Question *q in questions)
+    {
+        for(int i = 0; i < [[q getTags] count]; i++)
+        {
+            if([[[q getTags] objectAtIndex:i] intValue] == tagId)
+            {
+                [questionsForTag addObject:q];
+                break;
+            }
+        }
+    }
+    return [questionsForTag copy];
 }
 
 - (Question *)getQuestionForId:(NSInteger)questionId
@@ -241,9 +208,12 @@
         User *newUser = [[User alloc]init];
         [newUser setUserId:[[dict objectForKey:@"id"] intValue]];
         [newUser setName:[dict objectForKey:@"name"]];
-        [newUser setLocation:[dict objectForKey:@"location"]];
+        if([dict objectForKey:@"location"] != [NSNull null])
+        {
+            [newUser setLocation:[dict objectForKey:@"location"]];
+        }
         
-        NSString *avatarURL = [[NSString alloc] initWithFormat:[dict objectForKey:@"avatar"]];
+        NSString *avatarURL = [[NSString alloc] initWithFormat:@"%@", [dict objectForKey:@"avatar"]];
         [newUser setAvatar:[self downloadImage:[[NSURL alloc] initWithString:avatarURL]]];
         
         [newUser setReputation:[[dict objectForKey:@"reputation_sum"] intValue]];
@@ -276,19 +246,28 @@
         [selectedUser setCreated:[self dateFromString:[dict objectForKey:@"created"]]];
         if(([dict objectForKey:@"twitterurl"] != [NSNull null]))
         {
-            [selectedUser setTwitterUrl:[[NSURL alloc] initWithString:[dict objectForKey:@"twitterurl"]]];
+            [selectedUser setTwitterUrl:[[NSURL alloc] initWithString:[NSString stringWithFormat:@"%@", [dict objectForKey:@"twitterurl"]]]];
         }
         if(([dict objectForKey:@"googleurl"] != [NSNull null]))
         {
-            [selectedUser setGoogleUrl:[[NSURL alloc] initWithString:[dict objectForKey:@"googleurl"]]];
+            [selectedUser setGoogleUrl:[[NSURL alloc] initWithString:[NSString stringWithFormat:@"%@", [dict objectForKey:@"googleurl"]]]];
         }
         if(([dict objectForKey:@"facebookurl"] != [NSNull null]))
         {
-            [selectedUser setFacebookUrl:[[NSURL alloc] initWithString:[dict objectForKey:@"facebookurl"]]];
+            [selectedUser setFacebookUrl:[[NSURL alloc] initWithString:[NSString stringWithFormat:@"%@", [dict objectForKey:@"facebookurl"]]]];
         }
-        [selectedUser setAbout:[dict objectForKey:@"about_me"]];
-        [selectedUser setProfile:[dict objectForKey:@"profile"]];
-        [selectedUser setUrl:[dict objectForKey:@"url"]];
+        if([dict objectForKey:@"about_me"] != [NSNull null])
+        {
+            [selectedUser setAbout:[dict objectForKey:@"about_me"]];
+        }
+        if([dict objectForKey:@"profile"] != [NSNull null])
+        {
+            [selectedUser setProfile:[dict objectForKey:@"profile"]];
+        }
+        if([dict objectForKey:@"url"] != [NSNull null])
+        {
+            [selectedUser setUrl:[dict objectForKey:@"url"]];
+        }
     }
 }
 
@@ -365,7 +344,10 @@
     for (NSDictionary *dict in tagData)
     {
         Tag *selectedTag = [self getTagForId:tagId];
-        [selectedTag setWiki:[dict objectForKey:@"wiki"]];
+        if([dict objectForKey:@"wiki"] != [NSNull null])
+        {
+            [selectedTag setWiki:[dict objectForKey:@"wiki"]];
+        }
     }
 }
 
