@@ -3,11 +3,11 @@
 #import "SMART3QAAppDelegate.h"
 
 @interface TagDetailsController : UIViewController {
-    UILabel *titleLabel, *excertLabel;
+    IBOutlet UILabel *titleLabel, *excerptLabel, *wikiLabel;
+    IBOutlet UIScrollView *scrollView;
     SMART3QAAppDelegate *app;
 }
 
-- (void)setup;
 - (void)loadTag:(Tag *)tag;
 
 @end

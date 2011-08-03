@@ -5,7 +5,7 @@
 @interface UserDetailsController : UIViewController {
     IBOutlet UILabel *userIdLabel, *reputationLabel, *nameLabel, *aboutLabel, *birthdayLabel, *createdLabel, *profileLabel;
     UIButton *twitterButton, *googleButton, *facebookButton;
-    IBOutlet UIButton *locationButton, *urlButton, *userQuestions;
+    IBOutlet UIButton *locationButton, *urlButton;
     IBOutlet UIImageView *avatarView;
     SMART3QAAppDelegate* app;
     User *thisuser;

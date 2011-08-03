@@ -2,7 +2,7 @@
 #import "Tag.h"
 
 @interface TagViewCell : UITableViewCell {
-    UILabel *nameLabel, *questionCountLabel;
+    UILabel *nameLabel, *questionCountLabel, *excerptLabel;
     UIImageView *tagImage, *tableDividerImage;
 }
 

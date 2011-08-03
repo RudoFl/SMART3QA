@@ -3,39 +3,41 @@
 
 @implementation TagDetailsController
 
-- (void)setup
-{   
-    app = (SMART3QAAppDelegate*)[[UIApplication sharedApplication] delegate];
-    self.view.backgroundColor = [UIColor whiteColor];
-    
-    titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, 5, 310, 30)];
-    [titleLabel setFont:[UIFont boldSystemFontOfSize:24]];
-    [titleLabel setBackgroundColor:[UIColor clearColor]];
-    [self.view addSubview:titleLabel];
-    
-    excertLabel = [[UILabel alloc] initWithFrame:CGRectMake(titleLabel.frame.origin.x,
-                                                          titleLabel.frame.origin.y + titleLabel.frame.size.height + 5,
-                                                          310,
-                                                          0)];
-    [excertLabel setFont:[UIFont systemFontOfSize:12]];
-    [excertLabel setBackgroundColor:[UIColor clearColor]];
-    [excertLabel setLineBreakMode:UILineBreakModeWordWrap];
-    [self.view addSubview:excertLabel];
-}
-
 - (void)loadTag:(Tag *)tag
 {
     [app downloadDataForTag:[tag getTagId]];
     [self setTitle:[tag getName]];
     [titleLabel setText:[tag getName]];
-    [excertLabel setText:[tag getExcert]];
-    CGSize labelsize = [[tag getExcert] sizeWithFont:excertLabel.font 
-                                      constrainedToSize:CGSizeMake(310, 9999) 
-                                          lineBreakMode:titleLabel.lineBreakMode];
-    CGRect excertRect = excertLabel.frame;
+    
+    [excerptLabel setText:[tag getExcerpt]];
+    CGSize labelsize = [[tag getExcerpt] sizeWithFont:excerptLabel.font 
+                                      constrainedToSize:CGSizeMake(250, 9999) 
+                                          lineBreakMode:excerptLabel.lineBreakMode];
+    CGRect excertRect = excerptLabel.frame;
     excertRect.size.height = labelsize.height;
-    excertLabel.frame = excertRect;
-    [excertLabel setNumberOfLines:labelsize.height / excertLabel.font.lineHeight];
+    excerptLabel.frame = excertRect;
+    [excerptLabel setNumberOfLines:labelsize.height / excerptLabel.font.lineHeight];
+    
+    /*[wikiLabel setText:[tag getWiki]];
+    labelsize = [[tag getExcerpt] sizeWithFont:wikiLabel.font 
+                             constrainedToSize:CGSizeMake(310, 9999) 
+                                 lineBreakMode:wikiLabel.lineBreakMode];
+    CGRect wikiRect = wikiLabel.frame;
+    wikiRect.origin.y = excerptLabel.frame.origin.y + excerptLabel.frame.size.height + 15;
+    wikiRect.size.height = labelsize.height;
+    wikiLabel.frame = wikiRect;
+    [wikiLabel setNumberOfLines:labelsize.height / wikiLabel.font.lineHeight];*/
+    
+    [scrollView setScrollEnabled:YES];
+    [scrollView setContentSize:CGSizeMake(320, wikiLabel.frame.origin.y + wikiLabel.frame.size.height)];
+//1000)];//wikiLabel.frame.origin.y + wikiLabel.frame.size.height)];
+    
+    UIBarButtonItem *questionsButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"questions.png"]
+                                                                                            style:UIBarButtonItemStyleBordered 
+                                                                                           target:self 
+                                                                                           action:nil];
+    [questionsButton setTitle:@"Questions"];
+    self.navigationItem.rightBarButtonItem = questionsButton;
 }
 
 @end

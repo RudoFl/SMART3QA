@@ -29,14 +29,14 @@
     return name;
 }
 
-- (void)setExcert:(NSString *)input
+- (void)setExcerpt:(NSString *)input
 {
-    excert = input;
+    excerpt = input;
 }
 
-- (NSString *)getExcert
+- (NSString *)getExcerpt
 {
-    return excert;
+    return excerpt;
 }
 
 - (void)setWiki:(NSString *)input

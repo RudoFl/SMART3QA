@@ -48,8 +48,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Tag *selectedTag = [app getTagForIndex:[indexPath row]];
-    TagDetailsController *tagView = [[TagDetailsController alloc] init];
-    [tagView setup];
+    TagDetailsController *tagView = [self.storyboard instantiateViewControllerWithIdentifier:@"TagDetails"];
     [self.navigationController pushViewController:tagView animated:YES];
     [tagView loadTag:selectedTag];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -57,7 +56,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 40;
+    return 50;
 }
 
 - (void)viewWillAppear:(BOOL)animated

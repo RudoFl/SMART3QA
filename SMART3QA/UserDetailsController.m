@@ -5,6 +5,16 @@
 
 @implementation UserDetailsController
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    UIBarButtonItem *questionsButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"questions.png"]
+                                                                        style:UIBarButtonItemStyleBordered 
+                                                                       target:self 
+                                                                       action:@selector(showQuestions:)];
+    self.navigationItem.rightBarButtonItem = questionsButton;
+}
+
 - (void)loadUser:(User *)user
 {
     app = (SMART3QAAppDelegate*)[[UIApplication sharedApplication]delegate];
@@ -20,7 +30,6 @@
     [locationButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
     [urlButton setTitle:[NSString stringWithFormat:@" %@", [user getUrl]] forState:UIControlStateNormal];
     [urlButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
-    [userQuestions setTitle:[NSString stringWithFormat:@"Questions by %@",[user getName]] forState:UIControlStateNormal];
     
     CGRect avatarRect = avatarView.frame;
     avatarRect.size.height = avatarRect.size.width;

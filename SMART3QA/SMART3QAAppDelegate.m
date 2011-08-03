@@ -341,6 +341,7 @@
             [newTag setQuestionCount:[[dict objectForKey:@"question_count"] intValue]];
         }
         [parsedTags addObject:newTag];
+        [newTag setExcerpt:[dict objectForKey:@"excerpt"]];
     }
     
     tags = [parsedTags copy];
@@ -364,7 +365,6 @@
     for (NSDictionary *dict in tagData)
     {
         Tag *selectedTag = [self getTagForId:tagId];
-        [selectedTag setExcert:[dict objectForKey:@"excert"]];
         [selectedTag setWiki:[dict objectForKey:@"wiki"]];
     }
 }

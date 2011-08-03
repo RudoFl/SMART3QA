@@ -3,7 +3,7 @@
 @interface Tag : NSObject
 {
     NSInteger tagId, questionCount;
-    NSString *name, *excert, *wiki;
+    NSString *name, *excerpt, *wiki;
 }
 
 - (void)setTagId:(NSInteger)input;
@@ -15,8 +15,8 @@
 - (void)setName:(NSString *)input;
 - (NSString *)getName;
 
-- (void)setExcert:(NSString *)input;
-- (NSString *)getExcert;
+- (void)setExcerpt:(NSString *)input;
+- (NSString *)getExcerpt;
 
 - (void)setWiki:(NSString *)input;
 - (NSString *)getWiki;
