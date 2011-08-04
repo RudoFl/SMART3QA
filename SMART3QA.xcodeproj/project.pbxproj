@@ -57,6 +57,7 @@
 		42A4883A13E0AEE6007316B4 /* QuestionDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A4883913E0AEE6007316B4 /* QuestionDetailsController.m */; };
 		42BC3F4713E442AF00A7C96C /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 42BC3F4613E442AF00A7C96C /* Tag.m */; };
 		42CCD8FA13E472A000EFC1F3 /* TagDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42CCD8F913E472A000EFC1F3 /* TagDetailsController.m */; };
+		42D1124813E9CC700082F992 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D1124713E9CC700082F992 /* TabBarController.m */; };
 		42EA7BC213D88FD400F2B842 /* users@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42EA7BC113D88FD400F2B842 /* users@2x.png */; };
 		42EA7BCD13D8978D00F2B842 /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 42EA7BC313D8978C00F2B842 /* facebook.png */; };
 		42EA7BCE13D8978D00F2B842 /* facebook@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42EA7BC413D8978C00F2B842 /* facebook@2x.png */; };
@@ -148,6 +149,8 @@
 		42BC3F4413E4423800A7C96C /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tag.h; sourceTree = "<group>"; };
 		42BC3F4613E442AF00A7C96C /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tag.m; sourceTree = "<group>"; };
 		42CCD8F913E472A000EFC1F3 /* TagDetailsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagDetailsController.m; sourceTree = "<group>"; };
+		42D1124513E9CC540082F992 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
+		42D1124713E9CC700082F992 /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
 		42EA7BC113D88FD400F2B842 /* users@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "users@2x.png"; path = "../users@2x.png"; sourceTree = "<group>"; };
 		42EA7BC313D8978C00F2B842 /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = facebook.png; path = ../facebook.png; sourceTree = "<group>"; };
 		42EA7BC413D8978C00F2B842 /* facebook@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "facebook@2x.png"; path = "../facebook@2x.png"; sourceTree = "<group>"; };
@@ -216,6 +219,8 @@
 				4270168013D5C7E7003659AE /* SBJSON */,
 				4270166213D5C61E003659AE /* SMART3QAAppDelegate.h */,
 				4270166313D5C61E003659AE /* SMART3QAAppDelegate.m */,
+				42D1124513E9CC540082F992 /* TabBarController.h */,
+				42D1124713E9CC700082F992 /* TabBarController.m */,
 				421F65CA13D6F67400CC6D4C /* Question.h */,
 				421F65CB13D6F67D00CC6D4C /* Question.m */,
 				4270166B13D5C61E003659AE /* QuestionsViewController.h */,
@@ -435,6 +440,7 @@
 				42F749BE13E44563004D4D70 /* TagsViewController.m in Sources */,
 				42F749C113E4470D004D4D70 /* TagViewCell.m in Sources */,
 				42CCD8FA13E472A000EFC1F3 /* TagDetailsController.m in Sources */,
+				42D1124813E9CC700082F992 /* TabBarController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

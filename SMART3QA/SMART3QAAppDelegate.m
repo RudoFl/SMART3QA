@@ -18,8 +18,11 @@
     hostname = [[NSString alloc]initWithString:@"http://smart3.fhict.com"];
     NSLog(@"Download/Parsing started");
     [self downloadQuestions];
+    NSLog(@"Questions done");
     [self downloadUsers];
+    NSLog(@"Users done");
     [self downloadTags];
+    NSLog(@"Tags done");
     NSLog(@"Download/Parsing finished");
     [self.window makeKeyAndVisible];
     return YES;
@@ -99,7 +102,6 @@
     
     SBJsonParser *parser = [[SBJsonParser alloc]init];
     questions = [[parser objectWithString:myRawJSON error:nil] copy];
-    NSLog(@"QuestionsAfterDowload: %d", [questions count]);
     
     NSMutableArray *parsedQuestions = [NSMutableArray array];
     for (NSDictionary *dict in questions)
@@ -114,7 +116,6 @@
         [parsedQuestions addObject:newQuestion];
     }
     questions = [parsedQuestions copy];
-    NSLog(@"QuestionsAfterParse: %d", [questions count]);
 }
 
 - (void)downloadDataForQuestion:(NSInteger)questionId
