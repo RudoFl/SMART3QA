@@ -3,8 +3,8 @@
 
 @interface QuestionViewCell : UITableViewCell
 {
-    UILabel *titleLabel, *userLabel, *answerCountLabel, *createdLabel;
-    UIImageView *questionImage, *tableDividerImage;
+    UILabel *titleLabel, *answerCountLabel, *tagsLabel;
+    UIImageView *questionImage, *tableDividerImage, *tagsImage;
     SMART3QAAppDelegate *app;
 }
 

@@ -2,76 +2,150 @@
 #import "User.h"
 #import "SMART3QAAppDelegate.h"
 #import "QuestionsViewController.h"
+#import "ImageViewController.h"
+#import "WebViewController.h"
 
 @implementation UserDetailsController
+
+- (void)loadUser:(User *)user
+{
+    app = (SMART3QAAppDelegate*) [[UIApplication sharedApplication] delegate];
+    [app downloadDataForUser:[user getUserId]];
+    thisuser = user;
+    [self setTitle:[thisuser getName]];
+    NSArray *general = [[NSArray alloc] initWithObjects:[thisuser getName], [thisuser getAbout], [thisuser getAvatar], nil];
+    NSArray *location = [[NSArray alloc] initWithObjects:[thisuser getLocation], nil];
+    NSArray *website = [[NSArray alloc] initWithObjects:[thisuser getUrl], nil];
+    NSMutableArray *socialnetworks = [NSMutableArray arrayWithCapacity:3];
+    if([[NSString stringWithFormat:@"%@", [user getTwitterUrl]] rangeOfString:@"twitter"].location != NSNotFound)
+    {
+        [socialnetworks addObject:[user getTwitterUrl]];
+    }
+    if([[NSString stringWithFormat:@"%@", [user getFacebookUrl]] rangeOfString:@"facebook"].location != NSNotFound)
+    {
+        [socialnetworks addObject:[user getFacebookUrl]];
+    }
+    if([[NSString stringWithFormat:@"%@", [user getGoogleUrl]] rangeOfString:@"google"].location != NSNotFound)
+    {
+        [socialnetworks addObject:[user getGoogleUrl]];
+    }
+    
+    userData = [[NSDictionary alloc] initWithObjectsAndKeys:general, @"", location, @"Location", website, @"Website", socialnetworks, @"Social Networks", nil];
+    sortedKeys = [userData allKeys];
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    UIBarButtonItem *questionsButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"questions.png"]
-                                                                        style:UIBarButtonItemStyleBordered 
-                                                                       target:self 
-                                                                       action:@selector(showQuestions:)];
-    self.navigationItem.rightBarButtonItem = questionsButton;
 }
 
-- (void)loadUser:(User *)user
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    app = (SMART3QAAppDelegate*)[[UIApplication sharedApplication]delegate];
-    [app downloadDataForUser:[user getUserId]];
-    [self setTitle:[user getName]];
+    return [sortedKeys count];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if([[userData objectForKey:[sortedKeys objectAtIndex:section]] count] == 0)
+        return @"";
+    return [sortedKeys objectAtIndex:section];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section 
+{
+    if(section == 0)
+        return 1;
+    NSArray *listData =[userData objectForKey:[sortedKeys objectAtIndex:section]];
+    return [listData count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *SimpleTableIdentifier = @"SimpleTableIdentifier";
     
-    [avatarView setImage:[app resizeImage:[user getAvatar] scaleToSize:CGSizeMake(100, 100)]];
-    [profileLabel setText:[user getProfile]];
-    [nameLabel setText:[user getName]];
-    [aboutLabel setText:[user getAbout]];
-    [createdLabel setText:[@"Member for " stringByAppendingString:[app timeSinceDate:[user getCreated]]]];
-    [locationButton setTitle:[user getLocation] forState:UIControlStateNormal];
-    [locationButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
-    [urlButton setTitle:[NSString stringWithFormat:@" %@", [user getUrl]] forState:UIControlStateNormal];
-    [urlButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
+    NSArray *listData = [userData objectForKey:[sortedKeys objectAtIndex:[indexPath section]]];
     
-    CGRect avatarRect = avatarView.frame;
-    avatarRect.size.height = avatarRect.size.width;
-    avatarView.frame = avatarRect;
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:SimpleTableIdentifier];
     
-    thisuser = user;
+    NSUInteger row = [indexPath row];
+    
+    if (cell == nil)
+    {
+        if([indexPath section] == 0)
+        {
+            cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:SimpleTableIdentifier];
+            
+            [cell.textLabel setText:[NSString stringWithFormat:@"%@", [thisuser getName]]];
+            [cell.detailTextLabel setText:[NSString stringWithFormat:@"%@", [thisuser getAbout]]];
+            [cell.imageView setImage:[app resizeImage:[thisuser getAvatar] scaleToSize:CGSizeMake(30, 30)]];
+        }
+        else if([indexPath section] == 3)
+        {
+            NSString *content = [NSString stringWithFormat:@"%@", [listData objectAtIndex:row]];
+            cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:SimpleTableIdentifier];
+            if([content rangeOfString:@"twitter"].location != NSNotFound)
+            {
+                [cell.imageView setImage:[UIImage imageNamed:@"twitter.png"]];
+                [cell.textLabel setText:@"Twitter"];
+            }
+            else if([content rangeOfString:@"facebook"].location != NSNotFound)
+            {
+                [cell.imageView setImage:[UIImage imageNamed:@"facebook.png"]];
+                [cell.textLabel setText:@"Facebook"];
+            }
+            else if([content rangeOfString:@"google"].location != NSNotFound)
+            {
+                [cell.imageView setImage:[UIImage imageNamed:@"google.png"]];
+                [cell.textLabel setText:@"Google"];
+            }
+        }
+        else
+        {
+            cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:SimpleTableIdentifier];
+            [cell.textLabel setText:[NSString stringWithFormat:@"%@", [listData objectAtIndex:row]]];
+        }
+    }
+    
+    return cell;
 }
 
-- (IBAction)loadTwitter:(id)sender
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [[UIApplication sharedApplication] openURL:[thisuser getTwitterUrl]];
+    NSUInteger section = [indexPath section];
+    NSUInteger row = [indexPath row];
+    if(section == 0)
+    {
+        ImageViewController *imageViewer = [self.storyboard instantiateViewControllerWithIdentifier:@"ImageView"];
+        [self.navigationController pushViewController:imageViewer animated:YES];
+        [imageViewer setTitle:[thisuser getName]];
+        [imageViewer loadImage:[thisuser getAvatar]];
+    }
+    else if(section == 1)
+    {
+        WebViewController *webView = [self.storyboard instantiateViewControllerWithIdentifier:@"WebView"];
+        [self.navigationController pushViewController:webView animated:YES];
+        [webView loadWebpageFromString:[NSString stringWithFormat:@"http://maps.google.com/maps?q=%@", [thisuser getLocation]]];
+    }
+    else if(section == 2)
+    {
+        WebViewController *webView = [self.storyboard instantiateViewControllerWithIdentifier:@"WebView"];
+        [self.navigationController pushViewController:webView animated:YES];
+        [webView loadWebpageFromString:[NSString stringWithFormat:@"%@", [thisuser getUrl]]];
+    }
+    else if(section == 3)
+    {
+        NSArray *listData = [userData objectForKey:[sortedKeys objectAtIndex:3]];
+        NSString *url = [listData objectAtIndex:row];
+        WebViewController *webView = [self.storyboard instantiateViewControllerWithIdentifier:@"WebView"];
+        [self.navigationController pushViewController:webView animated:YES];
+        [webView loadWebpageFromString:url];
+    }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
-- (IBAction)loadGoogle:(id)sender
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    [[UIApplication sharedApplication] openURL:[thisuser getGoogleUrl]];
-}
-
-- (IBAction)loadFacebook:(id)sender
-{
-    [[UIApplication sharedApplication] openURL:[thisuser getFacebookUrl]];
-}
-
-- (IBAction)loadUrl:(id)sender
-{
-    /*
-     this should be
-     [[UIApplication sharedApplication] openURL:[thisuser getUrl]];
-     */
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", [thisuser getUrl]]]];
-}
-
-- (IBAction)loadLocation:(id)sender
-{
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://maps.google.com/maps?q=%@", [thisuser getLocation]]]];
-}
-
-- (IBAction)showQuestions:(id)sender
-{
-    QuestionsViewController *questionView = [self.storyboard instantiateViewControllerWithIdentifier:@"QuestionsView"];
-    [self.navigationController pushViewController:questionView animated:YES];
-    [questionView loadQuestionsForUserId:[thisuser getUserId]];
+    return NO;
 }
 
 @end

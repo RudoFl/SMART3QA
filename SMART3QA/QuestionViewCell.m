@@ -8,7 +8,7 @@
     if(self = [super initWithStyle:style reuseIdentifier:reuseIdentifier])
     {
         questionImage = [[UIImageView alloc] initWithFrame:CGRectZero];
-        questionImage.image = [app resizeImage:[UIImage imageNamed:@"questionbaloon.png"] scaleToSize:CGSizeMake(60, 60)];
+        questionImage.image = [app resizeImage:[UIImage imageNamed:@"questionbaloon.png"] scaleToSize:CGSizeMake(36, 36)];
         [self.contentView addSubview:questionImage];
         
         answerCountLabel = [[UILabel alloc] initWithFrame:CGRectZero];
@@ -23,17 +23,15 @@
         [titleLabel setBackgroundColor:[UIColor clearColor]];
         [self.contentView addSubview:titleLabel];
         
-        userLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-        [userLabel setFont:[UIFont systemFontOfSize:12]];
-        [userLabel setBackgroundColor:[UIColor clearColor]];
-        [self.contentView addSubview:userLabel];
+        tagsImage = [[UIImageView alloc] initWithFrame:CGRectZero];
+        tagsImage.image = [app resizeImage:[UIImage imageNamed:@"tagsneg.png"] scaleToSize:CGSizeMake(15, 15)];
         
-        createdLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-        [createdLabel setFont:[UIFont systemFontOfSize:12]];
-        [createdLabel setBackgroundColor:[UIColor clearColor]];
-        [self.contentView addSubview:createdLabel];
+        tagsLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+        [tagsLabel setFont:[UIFont systemFontOfSize:12]];
+        [tagsLabel setBackgroundColor:[UIColor clearColor]];
+        [self.contentView addSubview:tagsLabel];
         
-        tableDividerImage = [[UIImageView alloc] initWithFrame:CGRectMake(-10, 69, 640, 1)];
+        tableDividerImage = [[UIImageView alloc] initWithFrame:CGRectMake(-10, 41, 640, 1)];
         tableDividerImage.image = [UIImage imageNamed:@"tabledivider.png"];
         [self.contentView addSubview:tableDividerImage];
     }
@@ -45,10 +43,10 @@
     CGRect contentRect = self.contentView.bounds;
     
     CGRect imageRect = contentRect;
-    imageRect.origin.x = imageRect.origin.x + 5;
-    imageRect.origin.y = imageRect.origin.y + 5;
-    imageRect.size.height = 60;
-    imageRect.size.width = 60;
+    imageRect.origin.x = imageRect.origin.x + 3;
+    imageRect.origin.y = imageRect.origin.y + 3;
+    imageRect.size.height = 36;
+    imageRect.size.width = 36;
     questionImage.frame = imageRect;
     
     CGRect answerRect = contentRect;
@@ -65,27 +63,30 @@
     titleRect.size.width = 250;
     titleLabel.frame = titleRect;
     
-    CGRect userIdRect = contentRect;
-    userIdRect.origin.x = titleRect.origin.x;
-    userIdRect.origin.y = titleRect.origin.y + titleRect.size.height + 5;
-    userIdRect.size.width = 250;
-    userIdRect.size.height = 15;
-    userLabel.frame = userIdRect;
+    CGRect tagsImageRect = contentRect;
+    tagsImageRect.origin.x = titleRect.origin.x;
+    tagsImageRect.origin.y = titleRect.origin.y + titleRect.size.height;
+    tagsImageRect.size.width = 15;
+    tagsImageRect.size.height = 15;
+    tagsImage.frame = tagsImageRect;
     
-    CGRect createdRect = contentRect;
-    createdRect.origin.x = titleRect.origin.x;
-    createdRect.origin.y = userIdRect.origin.y + userIdRect.size.height;
-    createdRect.size.width = 250;
-    createdRect.size.height = 15;
-    createdLabel.frame = createdRect;
+    CGRect tagsRect = contentRect;
+    tagsRect.origin.x = tagsImageRect.origin.x + tagsImageRect.size.width + 2;
+    tagsRect.origin.y = tagsImageRect.origin.y;
+    tagsRect.size.width = 250;
+    tagsRect.size.height = 15;
+    tagsLabel.frame = tagsRect;
 }
 
 - (void)loadQuestion:(Question *)question
 {
     [answerCountLabel setText: [NSString stringWithFormat:@"%d", [question getAnswerCount]]];
     [titleLabel setText: [question getTitle]];
-    [userLabel setText: [[NSString stringWithString:@"By: "] stringByAppendingString:[[app getUserForId:[question getUserId]] getName]]];
-    [createdLabel setText:[[app timeSinceDate:[question getCreated]] stringByAppendingString:@" ago"]];
+    if([[question getTags] count] > 0)
+    {
+        [tagsLabel setText:[app getTagsForQuestion:question]];
+        [self.contentView addSubview:tagsImage];
+    }
 }
 
 @end

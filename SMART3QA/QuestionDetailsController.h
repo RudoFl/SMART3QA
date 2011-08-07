@@ -5,8 +5,13 @@
 @interface QuestionDetailsController : UIViewController {
     IBOutlet UILabel *titleLabel, *bodyLabel, *tagsLabel;
     IBOutlet UIScrollView *scrollView;
+    IBOutlet UIImageView *titleBar, *tagsImage;
+    IBOutlet UIButton *userButton;
+    Question *thisquestion;
     SMART3QAAppDelegate *app;
 }
+
+- (IBAction)viewUser:(id)sender;
 
 - (void)loadQuestion:(Question *)question;
 

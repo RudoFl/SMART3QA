@@ -49,8 +49,8 @@
 {
     User *selectedUser = [app getUserForIndex:[indexPath row]];
     UserDetailsController *userView = [self.storyboard instantiateViewControllerWithIdentifier:@"UserDetails"];
-    [self.navigationController pushViewController:userView animated:YES];
     [userView loadUser:selectedUser];
+    [self.navigationController pushViewController:userView animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 

@@ -2,21 +2,15 @@
 #import "User.h"
 #import "SMART3QAAppDelegate.h"
 
-@interface UserDetailsController : UIViewController {
-    IBOutlet UILabel *userIdLabel, *reputationLabel, *nameLabel, *aboutLabel, *birthdayLabel, *createdLabel, *profileLabel;
-    UIButton *twitterButton, *googleButton, *facebookButton;
-    IBOutlet UIButton *locationButton, *urlButton;
-    IBOutlet UIImageView *avatarView;
+@interface UserDetailsController : UIViewController
+<UITableViewDelegate, UITableViewDataSource> {
     SMART3QAAppDelegate* app;
     User *thisuser;
+    
+    NSDictionary *userData;
+    NSArray *sortedKeys;
 }
 
 - (void)loadUser:(User *)user;
-- (IBAction)loadTwitter:(id)sender;
-- (IBAction)loadGoogle:(id)sender;
-- (IBAction)loadFacebook:(id)sender;
-- (IBAction)loadUrl:(id)sender;
-- (IBAction)loadLocation:(id)sender;
-- (IBAction)showQuestions:(id)sender;
 
 @end

@@ -11,11 +11,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    //hostname = [[NSString alloc]initWithString:@"http://192.168.1.103"]; //wifi ruud
+    hostname = [[NSString alloc]initWithString:@"http://192.168.1.103"]; //wifi ruud
     //hostname = [[NSString alloc]initWithString:@"http://192.168.0.10"]; //wifi upc
     //hostname = [[NSString alloc]initWithString:@"http://192.168.0.27"]; //kabel zolder
     //hostname = [[NSString alloc]initWithString:@"http://vanderwerf.xs4all.nl"];
-    hostname = [[NSString alloc]initWithString:@"http://smart3.fhict.com"];
+    //hostname = [[NSString alloc]initWithString:@"http://smart3.fhict.com"];
     NSLog(@"Download/Parsing started");
     [self downloadQuestions];
     NSLog(@"Questions done");
@@ -110,7 +110,6 @@
         [newQuestion setQuestionId:[[dict objectForKey:@"id"] intValue]];
         [newQuestion setTitle:[dict objectForKey:@"title"]];
         [newQuestion setUserId: [[dict objectForKey:@"user_id"] intValue]];
-        [newQuestion setCreated:[self dateFromString:[dict objectForKey:@"created"]]];
         [newQuestion setAnswerCount:[[dict objectForKey:@"answer_count"] intValue]];
         [newQuestion setTags:[dict objectForKey:@"tags"]];
         [parsedQuestions addObject:newQuestion];
@@ -136,6 +135,7 @@
     for (NSDictionary *dict in questionData)
     {
         Question *selectedQuestion = [self getQuestionForId:questionId];
+        [selectedQuestion setCreated:[self dateFromString:[dict objectForKey:@"created"]]];
         [selectedQuestion setBody:[dict objectForKey:@"body"]];
     }
 }
@@ -207,17 +207,26 @@
     for (NSDictionary *dict in users)
     {
         User *newUser = [[User alloc]init];
-        [newUser setUserId:[[dict objectForKey:@"id"] intValue]];
-        [newUser setName:[dict objectForKey:@"name"]];
+        if ([dict objectForKey:@"id"] != [NSNull null]) 
+        {
+            [newUser setUserId:[[dict objectForKey:@"id"] intValue]];
+        }
+        if ([dict objectForKey:@"name"] != [NSNull null]) 
+        {
+            [newUser setName:[dict objectForKey:@"name"]];
+        }
         if([dict objectForKey:@"location"] != [NSNull null])
         {
             [newUser setLocation:[dict objectForKey:@"location"]];
         }
-        
-        NSString *avatarURL = [[NSString alloc] initWithFormat:@"%@", [dict objectForKey:@"avatar"]];
-        [newUser setAvatar:[self downloadImage:[[NSURL alloc] initWithString:avatarURL]]];
-        
-        [newUser setReputation:[[dict objectForKey:@"reputation_sum"] intValue]];
+        if ([dict objectForKey:@"avatar"] != [NSNull null]) 
+        {
+            NSString *avatarURL = [[NSString alloc] initWithFormat:@"%@", [dict objectForKey:@"avatar"]];
+            [newUser setAvatar:[self downloadImage:[[NSURL alloc] initWithString:avatarURL]]];
+        }
+        if ([dict objectForKey:@"reputation_sum"] != [NSNull null]) {
+            [newUser setReputation:[[dict objectForKey:@"reputation_sum"] intValue]];
+        }
         
         [parsedUsers addObject:newUser];
     }
@@ -373,6 +382,19 @@
 - (Tag *)getTagForIndex:(NSInteger)index
 {
     return [tags objectAtIndex:index];
+}
+
+- (NSString *)getTagsForQuestion:(Question *)question
+{
+    NSString *tagString = @"";
+    for(int i = 0; i < [[question getTags] count]; i++)
+    {
+        NSString *tagId = [[question getTags]objectAtIndex:i];
+        NSString *tagName = [[self getTagForId:[tagId intValue]] getName];
+        tagString = [tagString stringByAppendingString:tagName];
+        tagString = [tagString stringByAppendingString:@" "];
+    }
+    return tagString;
 }
 
 - (void)describeDictionary:(NSDictionary *)dict
