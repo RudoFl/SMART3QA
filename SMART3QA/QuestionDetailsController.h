@@ -12,6 +12,7 @@
 }
 
 - (IBAction)viewUser:(id)sender;
+- (IBAction)viewComments:(id)sender;
 
 - (void)loadQuestion:(Question *)question;
 

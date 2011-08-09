@@ -5,7 +5,7 @@
     NSInteger questionId, acceptedAnswer, userId, answerCount;
     NSString *title, *body;
     NSDate *created;
-    NSArray *tags;
+    NSArray *tags, *answers, *comments;
 }
 
 - (void) setQuestionId:(NSInteger)input;
@@ -31,5 +31,11 @@
 
 - (void) setTags:(NSArray *)input;
 - (NSArray *) getTags;
+
+- (void) setAnswers:(NSArray *)input;
+- (NSArray *) getAnswers;
+
+- (void) setComments:(NSArray *)input;
+- (NSArray *) getComments;
 
 @end

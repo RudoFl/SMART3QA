@@ -137,6 +137,15 @@
         Question *selectedQuestion = [self getQuestionForId:questionId];
         [selectedQuestion setCreated:[self dateFromString:[dict objectForKey:@"created"]]];
         [selectedQuestion setBody:[dict objectForKey:@"body"]];
+        [selectedQuestion setAnswerCount:[[dict objectForKey:@"answer_count"] intValue]];
+        if([dict objectForKey:@"comments"] != [NSNull null])
+        {
+            [selectedQuestion setComments:[dict objectForKey:@"comments"]];
+        }
+        if([dict objectForKey:@"answers"] != [NSNull null])
+        {
+            [selectedQuestion setAnswers:[dict objectForKey:@"answers"]];
+        }
     }
 }
 
@@ -321,16 +330,23 @@
         Tag *newTag = [[Tag alloc]init];
         [newTag setTagId:[[dict objectForKey:@"id"] intValue]];
         [newTag setName:[dict objectForKey:@"name"]];
-        if([dict objectForKey:@"question_count"] == [NSNull null])
-        {
+        
+        //TODO: questioncount
+        //if([dict objectForKey:@"question_count"] == [NSNull null])
+        //{
             [newTag setQuestionCount:0];
-        }
+        /*}
         else
         {
             [newTag setQuestionCount:[[dict objectForKey:@"question_count"] intValue]];
-        }
+        }*/
         [parsedTags addObject:newTag];
-        [newTag setExcerpt:[dict objectForKey:@"excerpt"]];
+        if([dict objectForKey:@"excerpt"] != [NSNull null])
+        {
+            [newTag setExcerpt:[dict objectForKey:@"excerpt"]];
+        } else {
+            [newTag setExcerpt:@""];
+        }
     }
     
     tags = [parsedTags copy];

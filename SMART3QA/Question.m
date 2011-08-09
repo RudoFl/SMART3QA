@@ -74,4 +74,22 @@
     return tags;
 }
 
+- (void) setAnswers:(NSArray *)input
+{
+    answers = input;
+}
+- (NSArray *) getAnswers
+{
+    return answers;
+}
+
+- (void) setComments:(NSArray *)input
+{
+    comments = input;
+}
+- (NSArray *) getComments
+{
+    return comments;
+}
+
 @end

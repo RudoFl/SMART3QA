@@ -12,7 +12,7 @@
     app = (SMART3QAAppDelegate*) [[UIApplication sharedApplication] delegate];
     [app downloadDataForUser:[user getUserId]];
     thisuser = user;
-    [self setTitle:[thisuser getName]];
+    [self setTitle:@"User"];
     NSArray *general = [[NSArray alloc] initWithObjects:[thisuser getName], [thisuser getAbout], [thisuser getAvatar], nil];
     NSArray *location = [[NSArray alloc] initWithObjects:[thisuser getLocation], nil];
     NSArray *website = [[NSArray alloc] initWithObjects:[thisuser getUrl], nil];
