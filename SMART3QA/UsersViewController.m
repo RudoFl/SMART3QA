@@ -38,7 +38,7 @@
     UserViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil)
     {
-        cell = [[UserViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[[UserViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     User *selectedUser = [app getUserForIndex:[indexPath row]];
     [cell loadUser:selectedUser];
@@ -51,6 +51,7 @@
     [self.navigationController pushViewController:userView animated:YES];
     User *selectedUser = [app getUserForIndex:[indexPath row]];
     [userView loadUser:selectedUser];
+    [userView release];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 

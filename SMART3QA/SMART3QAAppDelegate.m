@@ -43,7 +43,7 @@
     if(imageData == nil)
         return nil;
     UIImage *image = [[UIImage alloc]initWithData:imageData];
-    
+    [imageData release];
     return image;
 }
 
@@ -62,6 +62,7 @@
     [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     NSString *dateString = [dateFormatter stringFromDate:date];
+    [dateFormatter release];
     return dateString;
 }
 
@@ -71,6 +72,7 @@
     [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     NSDate *stringDate = [dateFormatter dateFromString:string];
+    [dateFormatter release];
     return stringDate;
 }
 
@@ -106,11 +108,14 @@
     
     if ([myRawJSON length] == 0) 
     {
+        [myRawJSON release];
         return;
     }
     
     SBJsonParser *parser = [[SBJsonParser alloc]init];
     questions = [[parser objectWithString:myRawJSON error:nil] copy];
+    [myRawJSON release];
+    [parser release];
     
     NSMutableArray *parsedQuestions = [NSMutableArray array];
     for (NSDictionary *dict in questions)
@@ -122,6 +127,7 @@
         [newQuestion setAnswerCount:[[dict objectForKey:@"answer_count"] intValue]];
         [newQuestion setTags:[dict objectForKey:@"tags"]];
         [parsedQuestions addObject:newQuestion];
+        [newQuestion release];
     }
     questions = [parsedQuestions copy];
 }
@@ -136,11 +142,15 @@
     
     if ([myRawJSON length] == 0) 
     {
+        [myRawJSON release];
         return;
     }
     
     SBJsonParser *parser = [[SBJsonParser alloc]init];
-    NSArray *questionData = [[parser objectWithString:myRawJSON error:nil] copy];    
+    NSArray *questionData = [[parser objectWithString:myRawJSON error:nil] copy];
+    [myRawJSON release];
+    [parser release];
+    
     for (NSDictionary *dict in questionData)
     {
         Question *selectedQuestion = [self getQuestionForId:questionId];
@@ -156,6 +166,7 @@
             [selectedQuestion setAnswers:[dict objectForKey:@"answers"]];
         }
     }
+    [questionData release];
 }
 
 - (NSArray *)getQuestions
@@ -173,7 +184,7 @@
             [questionsForUser addObject:q];
         }
     }
-    return [questionsForUser copy];
+    return questionsForUser;
 }
 
 - (NSArray *)getQuestionsForTag:(NSInteger)tagId
@@ -190,7 +201,7 @@
             }
         }
     }
-    return [questionsForTag copy];
+    return questionsForTag;
 }
 
 - (Question *)getQuestionForId:(NSInteger)questionId
@@ -215,16 +226,20 @@
     
     if ([myRawJSON length] == 0) 
     {
+        [myRawJSON release];
         return;
     }
     
     SBJsonParser *parser = [[SBJsonParser alloc]init];
     users = [[parser objectWithString:myRawJSON error:nil] copy];
+    [myRawJSON release];
+    [parser release];
     
     NSMutableArray *parsedUsers = [NSMutableArray array];
     for (NSDictionary *dict in users)
     {
         User *newUser = [[User alloc]init];
+        NSString *avatarURL = @"";
         if ([dict objectForKey:@"id"] != [NSNull null]) 
         {
             [newUser setUserId:[[dict objectForKey:@"id"] intValue]];
@@ -239,14 +254,15 @@
         }
         if ([dict objectForKey:@"avatar"] != [NSNull null]) 
         {
-            NSString *avatarURL = [[NSString alloc] initWithFormat:@"%@", [dict objectForKey:@"avatar"]];
+            avatarURL = [[NSString alloc] initWithFormat:@"%@", [dict objectForKey:@"avatar"]];
             [newUser setAvatar:[self downloadImage:[[NSURL alloc] initWithString:avatarURL]]];
         }
         if ([dict objectForKey:@"reputation_sum"] != [NSNull null]) {
             [newUser setReputation:[[dict objectForKey:@"reputation_sum"] intValue]];
         }
-        
         [parsedUsers addObject:newUser];
+        [newUser release];
+        [avatarURL release];
     }
     
     users = [parsedUsers copy];
@@ -262,11 +278,14 @@
     
     if ([myRawJSON length] == 0) 
     {
+        [myRawJSON release];
         return;
     }
     
     SBJsonParser *parser = [[SBJsonParser alloc]init];
     NSArray *userData = [[parser objectWithString:myRawJSON error:nil] copy];
+    [parser release];
+    [myRawJSON release];
     
     for (NSDictionary *dict in userData)
     {
@@ -297,6 +316,7 @@
             [selectedUser setUrl:[dict objectForKey:@"url"]];
         }
     }
+    [userData release];
 }
 
 - (NSArray *)getUsers
@@ -327,11 +347,14 @@
     
     if ([myRawJSON length] == 0) 
     {
+        [myRawJSON release];
         return;
     }
     
     SBJsonParser *parser = [[SBJsonParser alloc]init];
     tags = [[parser objectWithString:myRawJSON error:nil] copy];
+    [myRawJSON release];
+    [parser release];
     
     NSMutableArray *parsedTags = [NSMutableArray array];
     for (NSDictionary *dict in tags)
@@ -349,15 +372,15 @@
         {
             [newTag setQuestionCount:[[dict objectForKey:@"question_count"] intValue]];
         }*/
-        [parsedTags addObject:newTag];
         if([dict objectForKey:@"excerpt"] != [NSNull null])
         {
             [newTag setExcerpt:[dict objectForKey:@"excerpt"]];
         } else {
             [newTag setExcerpt:@""];
         }
+        [parsedTags addObject:newTag];
+//        [newTag release];
     }
-    
     tags = [parsedTags copy];
 }
 
@@ -371,11 +394,14 @@
     
     if ([myRawJSON length] == 0) 
     {
+        [myRawJSON release];
         return;
     }
     
     SBJsonParser *parser = [[SBJsonParser alloc]init];
-    NSArray *tagData = [[parser objectWithString:myRawJSON error:nil] copy];    
+    NSArray *tagData = [[parser objectWithString:myRawJSON error:nil] copy];
+    [myRawJSON release];
+    [parser release];
     for (NSDictionary *dict in tagData)
     {
         Tag *selectedTag = [self getTagForId:tagId];
@@ -384,6 +410,7 @@
             [selectedTag setWiki:[dict objectForKey:@"wiki"]];
         }
     }
+    [tagData release];
 }
 
 

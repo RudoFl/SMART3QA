@@ -31,12 +31,21 @@
     }
     
     userData = [[NSDictionary alloc] initWithObjectsAndKeys:general, @"", location, @"Location", website, @"Website", socialnetworks, @"Social Networks", nil];
-    sortedKeys = [userData allKeys];
+    sortedKeys = [[userData allKeys] copy];
+    [general release];
+    [location release];
+    [website release];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    UIBarButtonItem *questionsButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"questions.png"]
+                                                                        style:UIBarButtonItemStyleBordered 
+                                                                       target:self 
+                                                                       action:@selector(showQuestions:)];
+    self.navigationItem.rightBarButtonItem = questionsButton;
+    [questionsButton release];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -105,8 +114,7 @@
             [cell.textLabel setText:[NSString stringWithFormat:@"%@", [listData objectAtIndex:row]]];
         }
     }
-    
-    return cell;
+    return [cell autorelease];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -119,18 +127,21 @@
         [self.navigationController pushViewController:imageViewer animated:YES];
         [imageViewer setTitle:[thisuser getName]];
         [imageViewer loadImage:[thisuser getAvatar]];
+        [imageViewer release];
     }
     else if(section == 1)
     {
         WebViewController *webView = [[WebViewController alloc] initWithNibName:@"WebView" bundle:nil];
         [self.navigationController pushViewController:webView animated:YES];
         [webView loadWebpageFromString:[NSString stringWithFormat:@"http://maps.google.com/maps?q=%@", [thisuser getLocation]]];
+        [webView release];
     }
     else if(section == 2)
     {
         WebViewController *webView = [[WebViewController alloc] initWithNibName:@"WebView" bundle:nil];
         [self.navigationController pushViewController:webView animated:YES];
         [webView loadWebpageFromString:[NSString stringWithFormat:@"%@", [thisuser getUrl]]];
+        [webView release];
     }
     else if(section == 3)
     {
@@ -139,9 +150,19 @@
         WebViewController *webView = [[WebViewController alloc] initWithNibName:@"WebView" bundle:nil];
         [self.navigationController pushViewController:webView animated:YES];
         [webView loadWebpageFromString:url];
+        [webView release];
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
+
+- (IBAction)showQuestions:(id)sender
+{
+    QuestionsViewController *questionView = [[QuestionsViewController alloc] initWithNibName:@"QuestionsView" bundle:nil];
+    [self.navigationController pushViewController:questionView animated:YES];
+    [questionView loadQuestionsForUserId:[thisuser getUserId]];
+    [questionView release];
+}
+
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {

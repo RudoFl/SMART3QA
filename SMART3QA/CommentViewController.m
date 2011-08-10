@@ -16,6 +16,7 @@
         UIImageView *tableDividerImage = [[UIImageView alloc] initWithFrame:CGRectMake(-10, 0, 640, 1)];
         tableDividerImage.image = [UIImage imageNamed:@"tabledivider.png"];
         [commentView addSubview:tableDividerImage];
+        [tableDividerImage release];
         
         UIButton *answerUserButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [answerUserButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
@@ -57,6 +58,9 @@
         commentView.frame = commentRect;
         [scrollView addSubview:commentView];
         commentRect.origin.y += commentRect.size.height;
+        
+        [commentBodyLabel release];
+        [commentView release];
     }
     
     [scrollView setScrollEnabled:YES];
@@ -69,6 +73,7 @@
     [self.navigationController pushViewController:userView animated:YES];
     User *user = [app getUserForId:((UIControl*)sender).tag];
     [userView loadUser:user];
+    [userView release];
 }
 
 @end

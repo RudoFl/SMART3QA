@@ -13,6 +13,7 @@
                                                                        target:self 
                                                                        action:@selector(showQuestions:)];
     self.navigationItem.rightBarButtonItem = questionsButton;
+    [questionsButton release];
 }
 
 - (void)loadTag:(Tag *)tag
@@ -51,6 +52,7 @@
     QuestionsViewController *questionView = [[QuestionsViewController alloc] initWithNibName:@"QuestionsView" bundle:nil];
     [self.navigationController pushViewController:questionView animated:YES];
     [questionView loadQuestionsForTagId:[thistag getTagId]];
+    [questionView release];
 }
 
 @end

@@ -38,7 +38,7 @@
     TagViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil)
     {
-        cell = [[TagViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[[TagViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     Tag *selectedTag = [app getTagForIndex:[indexPath row]];
     [cell loadTag:selectedTag];
@@ -51,6 +51,7 @@
     TagDetailsController *tagView = [[TagDetailsController alloc] initWithNibName:@"TagDetailsView" bundle:nil];
     [self.navigationController pushViewController:tagView animated:YES];
     [tagView loadTag:selectedTag];
+    [tagView release];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 

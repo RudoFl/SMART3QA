@@ -12,5 +12,7 @@
 }
 
 - (void)loadUser:(User *)user;
+- (IBAction)showQuestions:(id)sender;
+
 
 @end

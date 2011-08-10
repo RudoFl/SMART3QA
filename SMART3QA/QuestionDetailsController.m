@@ -50,6 +50,7 @@
         UIImageView *tableDividerImage = [[UIImageView alloc] initWithFrame:CGRectMake(-10, 0, 640, 1)];
         tableDividerImage.image = [UIImage imageNamed:@"tabledivider.png"];
         [answerView addSubview:tableDividerImage];
+        [tableDividerImage release];
         
         UIButton *answerUserButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [answerUserButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
@@ -57,7 +58,6 @@
         userName = [[app getUserForId:[[answer objectForKey:@"user_id"] intValue]] getName];
         if([answer objectForKey:@"created"] == [NSNull null])
         {
-            date = @"";
             userButtonTitle = userName;
         }
         else
@@ -96,6 +96,9 @@
         answerView.frame = answerRect;
         [scrollView addSubview:answerView];
         answerRect.origin.y += answerRect.size.height;
+
+        [answerBodyLabel release];
+        [answerView release];
         
         index++;
     }
@@ -117,6 +120,7 @@
     [self.navigationController pushViewController:userView animated:YES];
     User *user = [app getUserForId:((UIControl*)sender).tag];
     [userView loadUser:user];
+    [userView release];
 }
 
 - (IBAction)viewComments:(id)sender
@@ -131,6 +135,7 @@
         NSDictionary *answer = [[thisquestion getAnswers] objectAtIndex:tag];
         [commentView loadComments:[answer objectForKey:@"comments"]];
     }
+    [commentView release];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

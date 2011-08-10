@@ -9,6 +9,7 @@
     [super viewDidLoad];
     app = (SMART3QAAppDelegate*) [[UIApplication sharedApplication] delegate];
     questions = [app getQuestions];
+    [self setTitle:@"Questions"];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section 
@@ -23,7 +24,7 @@
     QuestionViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil)
     {
-        cell = [[QuestionViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[[QuestionViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     [cell loadQuestion:[questions objectAtIndex:[indexPath row]]];
     return cell;
@@ -34,6 +35,7 @@
     QuestionDetailsController *questionView = [[QuestionDetailsController alloc] initWithNibName:@"QuestionDetailsView" bundle:nil];
     [self.navigationController pushViewController:questionView animated:YES];
     [questionView loadQuestion:[questions objectAtIndex:[indexPath row]]];
+    [questionView release];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 

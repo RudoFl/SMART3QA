@@ -137,7 +137,7 @@
 
 - (void)parserFoundArrayStart:(SBJsonStreamParser*)parser {
 	if (++depth > self.levelsToSkip) {
-		array = [[NSMutableArray new] autorelease];
+		array = [NSMutableArray new];
 		[stack addObject:array];
 		currentType = SBJsonStreamParserAdapterArray;
 	}
