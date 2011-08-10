@@ -48,7 +48,7 @@
 
 - (IBAction)showQuestions:(id)sender
 {
-    QuestionsViewController *questionView = [self.storyboard instantiateViewControllerWithIdentifier:@"QuestionsView"];
+    QuestionsViewController *questionView = [[QuestionsViewController alloc] initWithNibName:@"QuestionsView" bundle:nil];
     [self.navigationController pushViewController:questionView animated:YES];
     [questionView loadQuestionsForTagId:[thistag getTagId]];
 }

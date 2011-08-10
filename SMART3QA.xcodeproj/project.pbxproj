@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4214B2C213F297FC00028340 /* TagDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4214B2C113F297FC00028340 /* TagDetailsView.xib */; };
+		4214B2C513F2999800028340 /* ImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4214B2C413F2999800028340 /* ImageView.xib */; };
+		4214B2C713F299CD00028340 /* WebView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4214B2C613F299CC00028340 /* WebView.xib */; };
 		421F659A13D6F35400CC6D4C /* badges.png in Resources */ = {isa = PBXBuildFile; fileRef = 421F658A13D6F35400CC6D4C /* badges.png */; };
 		421F659B13D6F35400CC6D4C /* badges@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 421F658B13D6F35400CC6D4C /* badges@2x.png */; };
 		421F659E13D6F35400CC6D4C /* questions.png in Resources */ = {isa = PBXBuildFile; fileRef = 421F658E13D6F35400CC6D4C /* questions.png */; };
@@ -52,16 +55,20 @@
 		4281F30513E44FFD005F661D /* comingsoon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4281F30413E44FFD005F661D /* comingsoon.jpg */; };
 		4281F30813E4558A005F661D /* questioncount.png in Resources */ = {isa = PBXBuildFile; fileRef = 4281F30713E4558A005F661D /* questioncount.png */; };
 		42838BC213DFF80F00389D26 /* questionbaloon.png in Resources */ = {isa = PBXBuildFile; fileRef = 42838BC113DFF80F00389D26 /* questionbaloon.png */; };
+		428CB72013F2E86A0068B56B /* QuestionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 428CB71F13F2E86A0068B56B /* QuestionsView.xib */; };
 		4294545913E94810007B2854 /* tagsneg.png in Resources */ = {isa = PBXBuildFile; fileRef = 4294545713E94810007B2854 /* tagsneg.png */; };
 		4294545A13E94810007B2854 /* tagsneg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4294545813E94810007B2854 /* tagsneg@2x.png */; };
 		42A4882D13E09E09007316B4 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 42A4882C13E09E09007316B4 /* Entitlements.plist */; };
 		42A4883713E0AE46007316B4 /* tabledivider.png in Resources */ = {isa = PBXBuildFile; fileRef = 42A4883613E0AE46007316B4 /* tabledivider.png */; };
 		42A4883A13E0AEE6007316B4 /* QuestionDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A4883913E0AEE6007316B4 /* QuestionDetailsController.m */; };
+		42A58E6913F2C9AF002D8DD8 /* BadgesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42A58E6813F2C9AF002D8DD8 /* BadgesView.xib */; };
+		42B767DD13F2960B0078DD03 /* UsersView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42B767DC13F2960A0078DD03 /* UsersView.xib */; };
+		42B767DF13F2964F0078DD03 /* UserDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42B767DE13F2964F0078DD03 /* UserDetailsView.xib */; };
+		42B767E313F297820078DD03 /* TagsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42B767E213F297820078DD03 /* TagsView.xib */; };
 		42BC3F4713E442AF00A7C96C /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 42BC3F4613E442AF00A7C96C /* Tag.m */; };
 		42BC7D7D13F1613B00AB93E0 /* questiontitlebar.png in Resources */ = {isa = PBXBuildFile; fileRef = 42BC7D7C13F1613900AB93E0 /* questiontitlebar.png */; };
 		42BC7D8013F162A500AB93E0 /* CommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42BC7D7F13F162A500AB93E0 /* CommentViewController.m */; };
 		42CCD8FA13E472A000EFC1F3 /* TagDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42CCD8F913E472A000EFC1F3 /* TagDetailsController.m */; };
-		42D1124813E9CC700082F992 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D1124713E9CC700082F992 /* TabBarController.m */; };
 		42EA7BC213D88FD400F2B842 /* users@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42EA7BC113D88FD400F2B842 /* users@2x.png */; };
 		42EA7BCD13D8978D00F2B842 /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 42EA7BC313D8978C00F2B842 /* facebook.png */; };
 		42EA7BCE13D8978D00F2B842 /* facebook@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42EA7BC413D8978C00F2B842 /* facebook@2x.png */; };
@@ -73,11 +80,17 @@
 		42EA7BD413D8978D00F2B842 /* twitter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42EA7BCA13D8978C00F2B842 /* twitter@2x.png */; };
 		42EA7BD513D8978D00F2B842 /* www.png in Resources */ = {isa = PBXBuildFile; fileRef = 42EA7BCB13D8978D00F2B842 /* www.png */; };
 		42EA7BD613D8978D00F2B842 /* www@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42EA7BCC13D8978D00F2B842 /* www@2x.png */; };
+		42EE726413F2939800A55F32 /* RootView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42EE726313F2939800A55F32 /* RootView.xib */; };
+		42EE726713F293CC00A55F32 /* QuestionDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42EE726613F293CC00A55F32 /* QuestionDetailsView.xib */; };
+		42EE726913F2946500A55F32 /* CommentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42EE726813F2946400A55F32 /* CommentView.xib */; };
 		42F749BE13E44563004D4D70 /* TagsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F749BD13E44563004D4D70 /* TagsViewController.m */; };
 		42F749C113E4470D004D4D70 /* TagViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F749C013E4470D004D4D70 /* TagViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4214B2C113F297FC00028340 /* TagDetailsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TagDetailsView.xib; sourceTree = "<group>"; };
+		4214B2C413F2999800028340 /* ImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageView.xib; sourceTree = "<group>"; };
+		4214B2C613F299CC00028340 /* WebView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebView.xib; sourceTree = "<group>"; };
 		421F658A13D6F35400CC6D4C /* badges.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = badges.png; path = ../badges.png; sourceTree = "<group>"; };
 		421F658B13D6F35400CC6D4C /* badges@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "badges@2x.png"; path = "../badges@2x.png"; sourceTree = "<group>"; };
 		421F658E13D6F35400CC6D4C /* questions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = questions.png; path = ../questions.png; sourceTree = "<group>"; };
@@ -148,20 +161,23 @@
 		4281F30713E4558A005F661D /* questioncount.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = questioncount.png; sourceTree = "<group>"; };
 		4281F30913E471CF005F661D /* TagDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagDetailsController.h; sourceTree = "<group>"; };
 		42838BC113DFF80F00389D26 /* questionbaloon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = questionbaloon.png; sourceTree = "<group>"; };
+		428CB71F13F2E86A0068B56B /* QuestionsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = QuestionsView.xib; path = ../QuestionsView.xib; sourceTree = "<group>"; };
 		4294545713E94810007B2854 /* tagsneg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tagsneg.png; sourceTree = "<group>"; };
 		4294545813E94810007B2854 /* tagsneg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tagsneg@2x.png"; sourceTree = "<group>"; };
 		42A4882C13E09E09007316B4 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		42A4883613E0AE46007316B4 /* tabledivider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabledivider.png; sourceTree = "<group>"; };
 		42A4883813E0AED9007316B4 /* QuestionDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionDetailsController.h; sourceTree = "<group>"; };
 		42A4883913E0AEE6007316B4 /* QuestionDetailsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionDetailsController.m; sourceTree = "<group>"; };
+		42A58E6813F2C9AF002D8DD8 /* BadgesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BadgesView.xib; sourceTree = "<group>"; };
+		42B767DC13F2960A0078DD03 /* UsersView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UsersView.xib; sourceTree = "<group>"; };
+		42B767DE13F2964F0078DD03 /* UserDetailsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserDetailsView.xib; sourceTree = "<group>"; };
+		42B767E213F297820078DD03 /* TagsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TagsView.xib; sourceTree = "<group>"; };
 		42BC3F4413E4423800A7C96C /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tag.h; sourceTree = "<group>"; };
 		42BC3F4613E442AF00A7C96C /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tag.m; sourceTree = "<group>"; };
 		42BC7D7C13F1613900AB93E0 /* questiontitlebar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = questiontitlebar.png; sourceTree = "<group>"; };
 		42BC7D7E13F1628900AB93E0 /* CommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentViewController.h; sourceTree = "<group>"; };
 		42BC7D7F13F162A500AB93E0 /* CommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentViewController.m; sourceTree = "<group>"; };
 		42CCD8F913E472A000EFC1F3 /* TagDetailsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagDetailsController.m; sourceTree = "<group>"; };
-		42D1124513E9CC540082F992 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
-		42D1124713E9CC700082F992 /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
 		42EA7BC113D88FD400F2B842 /* users@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "users@2x.png"; path = "../users@2x.png"; sourceTree = "<group>"; };
 		42EA7BC313D8978C00F2B842 /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = facebook.png; path = ../facebook.png; sourceTree = "<group>"; };
 		42EA7BC413D8978C00F2B842 /* facebook@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "facebook@2x.png"; path = "../facebook@2x.png"; sourceTree = "<group>"; };
@@ -173,6 +189,9 @@
 		42EA7BCA13D8978C00F2B842 /* twitter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "twitter@2x.png"; path = "../twitter@2x.png"; sourceTree = "<group>"; };
 		42EA7BCB13D8978D00F2B842 /* www.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = www.png; path = ../www.png; sourceTree = "<group>"; };
 		42EA7BCC13D8978D00F2B842 /* www@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "www@2x.png"; path = "../www@2x.png"; sourceTree = "<group>"; };
+		42EE726313F2939800A55F32 /* RootView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootView.xib; sourceTree = "<group>"; };
+		42EE726613F293CC00A55F32 /* QuestionDetailsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionDetailsView.xib; sourceTree = "<group>"; };
+		42EE726813F2946400A55F32 /* CommentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentView.xib; sourceTree = "<group>"; };
 		42F749BB13E4452B004D4D70 /* TagsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagsViewController.h; sourceTree = "<group>"; };
 		42F749BD13E44563004D4D70 /* TagsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagsViewController.m; sourceTree = "<group>"; };
 		42F749BF13E446B3004D4D70 /* TagViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagViewCell.h; sourceTree = "<group>"; };
@@ -193,6 +212,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		422C67DF13F28B2800B3AED5 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		422C67E013F28B2800B3AED5 /* Questions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Questions;
+			sourceTree = "<group>";
+		};
+		422C67E113F28B2800B3AED5 /* Tags */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tags;
+			sourceTree = "<group>";
+		};
+		422C67E213F28B2800B3AED5 /* Users */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Users;
+			sourceTree = "<group>";
+		};
 		4270164413D5C61D003659AE = {
 			isa = PBXGroup;
 			children = (
@@ -227,43 +274,56 @@
 		4270165913D5C61D003659AE /* SMART3QA */ = {
 			isa = PBXGroup;
 			children = (
+				422C67DF13F28B2800B3AED5 /* Other */,
+				422C67E013F28B2800B3AED5 /* Questions */,
+				422C67E113F28B2800B3AED5 /* Tags */,
+				422C67E213F28B2800B3AED5 /* Users */,
 				4270168013D5C7E7003659AE /* SBJSON */,
+				42EE726313F2939800A55F32 /* RootView.xib */,
 				4270166213D5C61E003659AE /* SMART3QAAppDelegate.h */,
 				4270166313D5C61E003659AE /* SMART3QAAppDelegate.m */,
-				42D1124513E9CC540082F992 /* TabBarController.h */,
-				42D1124713E9CC700082F992 /* TabBarController.m */,
 				421F65CA13D6F67400CC6D4C /* Question.h */,
 				421F65CB13D6F67D00CC6D4C /* Question.m */,
 				4270166B13D5C61E003659AE /* QuestionsViewController.h */,
 				4270166D13D5C61E003659AE /* QuestionsViewController.m */,
+				428CB71F13F2E86A0068B56B /* QuestionsView.xib */,
 				425B139913D6FC940034F104 /* QuestionViewCell.h */,
 				425B139B13D6FCC60034F104 /* QuestionViewCell.m */,
 				42A4883813E0AED9007316B4 /* QuestionDetailsController.h */,
 				42A4883913E0AEE6007316B4 /* QuestionDetailsController.m */,
+				42EE726613F293CC00A55F32 /* QuestionDetailsView.xib */,
 				427016AA13D5CC96003659AE /* User.h */,
 				427016AB13D5CCA6003659AE /* User.m */,
 				4270167313D5C61F003659AE /* UsersViewController.h */,
 				4270167513D5C61F003659AE /* UsersViewController.m */,
+				42B767DC13F2960A0078DD03 /* UsersView.xib */,
 				426C6B6513D647E600A7B59C /* UserViewCell.h */,
 				426C6B6713D6482B00A7B59C /* UserViewCell.m */,
 				426860B313D85273009C9D63 /* UserDetailsController.h */,
 				426860B413D85280009C9D63 /* UserDetailsController.m */,
+				42B767DE13F2964F0078DD03 /* UserDetailsView.xib */,
 				42BC3F4413E4423800A7C96C /* Tag.h */,
 				42BC3F4613E442AF00A7C96C /* Tag.m */,
 				42F749BB13E4452B004D4D70 /* TagsViewController.h */,
 				42F749BD13E44563004D4D70 /* TagsViewController.m */,
+				42B767E213F297820078DD03 /* TagsView.xib */,
 				42F749BF13E446B3004D4D70 /* TagViewCell.h */,
 				42F749C013E4470D004D4D70 /* TagViewCell.m */,
 				4281F30913E471CF005F661D /* TagDetailsController.h */,
 				42CCD8F913E472A000EFC1F3 /* TagDetailsController.m */,
+				4214B2C113F297FC00028340 /* TagDetailsView.xib */,
 				42BC7D7E13F1628900AB93E0 /* CommentViewController.h */,
 				42BC7D7F13F162A500AB93E0 /* CommentViewController.m */,
+				42EE726813F2946400A55F32 /* CommentView.xib */,
+				42A58E6813F2C9AF002D8DD8 /* BadgesView.xib */,
 				4270166513D5C61E003659AE /* MainStoryboard_iPhone.storyboard */,
 				4270166813D5C61E003659AE /* MainStoryboard_iPad.storyboard */,
 				422CD17D13EEFAAC009C9852 /* ImageViewController.h */,
 				422CD17F13EEFAB4009C9852 /* ImageViewController.m */,
+				4214B2C413F2999800028340 /* ImageView.xib */,
 				422CD18113EEFD4F009C9852 /* WebViewController.h */,
 				422CD18213EEFDBD009C9852 /* WebViewController.m */,
+				4214B2C613F299CC00028340 /* WebView.xib */,
 				4270165A13D5C61D003659AE /* Supporting Files */,
 				4281F30413E44FFD005F661D /* comingsoon.jpg */,
 				4246A5F513E6D1E500A3B04F /* avatar.png */,
@@ -424,6 +484,17 @@
 				42499F2F13E98FCC0086E64D /* Icon@2x.png in Resources */,
 				42499F3113E98FE10086E64D /* Icon-72.png in Resources */,
 				42BC7D7D13F1613B00AB93E0 /* questiontitlebar.png in Resources */,
+				42EE726413F2939800A55F32 /* RootView.xib in Resources */,
+				42EE726713F293CC00A55F32 /* QuestionDetailsView.xib in Resources */,
+				42EE726913F2946500A55F32 /* CommentView.xib in Resources */,
+				42B767DD13F2960B0078DD03 /* UsersView.xib in Resources */,
+				42B767DF13F2964F0078DD03 /* UserDetailsView.xib in Resources */,
+				42B767E313F297820078DD03 /* TagsView.xib in Resources */,
+				4214B2C213F297FC00028340 /* TagDetailsView.xib in Resources */,
+				4214B2C513F2999800028340 /* ImageView.xib in Resources */,
+				4214B2C713F299CD00028340 /* WebView.xib in Resources */,
+				42A58E6913F2C9AF002D8DD8 /* BadgesView.xib in Resources */,
+				428CB72013F2E86A0068B56B /* QuestionsView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,7 +531,6 @@
 				42F749BE13E44563004D4D70 /* TagsViewController.m in Sources */,
 				42F749C113E4470D004D4D70 /* TagViewCell.m in Sources */,
 				42CCD8FA13E472A000EFC1F3 /* TagDetailsController.m in Sources */,
-				42D1124813E9CC700082F992 /* TabBarController.m in Sources */,
 				422CD18013EEFAB4009C9852 /* ImageViewController.m in Sources */,
 				422CD18313EEFDBD009C9852 /* WebViewController.m in Sources */,
 				42BC7D8013F162A500AB93E0 /* CommentViewController.m in Sources */,
@@ -517,7 +587,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -536,7 +606,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -550,6 +620,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SMART3QA/SMART3QA-Prefix.pch";
 				INFOPLIST_FILE = "SMART3QA/SMART3QA-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -561,6 +632,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SMART3QA/SMART3QA-Prefix.pch";
 				INFOPLIST_FILE = "SMART3QA/SMART3QA-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -579,7 +651,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -593,6 +665,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SMART3QA/SMART3QA-Prefix.pch";
 				INFOPLIST_FILE = "SMART3QA/SMART3QA-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

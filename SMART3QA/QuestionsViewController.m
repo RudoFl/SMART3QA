@@ -2,16 +2,13 @@
 #import "Question.h"
 #import "QuestionViewCell.h"
 #import "QuestionDetailsController.h"
-
 @implementation QuestionsViewController
 
 - (void)viewDidLoad
 {
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     [super viewDidLoad];
     app = (SMART3QAAppDelegate*) [[UIApplication sharedApplication] delegate];
     questions = [app getQuestions];
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section 
@@ -34,7 +31,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    QuestionDetailsController *questionView = [self.storyboard instantiateViewControllerWithIdentifier:@"QuestionDetails"];
+    QuestionDetailsController *questionView = [[QuestionDetailsController alloc] initWithNibName:@"QuestionDetailsView" bundle:nil];
     [self.navigationController pushViewController:questionView animated:YES];
     [questionView loadQuestion:[questions objectAtIndex:[indexPath row]]];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

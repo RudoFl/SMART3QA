@@ -2,7 +2,7 @@
 #import "SMART3QAAppDelegate.h"
 
 @interface QuestionsViewController : UITableViewController
-<UITableViewDelegate, UITableViewDataSource>
+    <UITableViewDelegate, UITableViewDataSource>
 {
     NSArray *questions;
     SMART3QAAppDelegate* app;

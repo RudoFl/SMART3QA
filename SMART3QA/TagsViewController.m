@@ -48,7 +48,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Tag *selectedTag = [app getTagForIndex:[indexPath row]];
-    TagDetailsController *tagView = [self.storyboard instantiateViewControllerWithIdentifier:@"TagDetails"];
+    TagDetailsController *tagView = [[TagDetailsController alloc] initWithNibName:@"TagDetailsView" bundle:nil];
     [self.navigationController pushViewController:tagView animated:YES];
     [tagView loadTag:selectedTag];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

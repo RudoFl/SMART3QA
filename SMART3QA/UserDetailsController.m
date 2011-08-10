@@ -115,20 +115,20 @@
     NSUInteger row = [indexPath row];
     if(section == 0)
     {
-        ImageViewController *imageViewer = [self.storyboard instantiateViewControllerWithIdentifier:@"ImageView"];
+        ImageViewController *imageViewer = [[ImageViewController alloc] initWithNibName:@"ImageView" bundle:nil];
         [self.navigationController pushViewController:imageViewer animated:YES];
         [imageViewer setTitle:[thisuser getName]];
         [imageViewer loadImage:[thisuser getAvatar]];
     }
     else if(section == 1)
     {
-        WebViewController *webView = [self.storyboard instantiateViewControllerWithIdentifier:@"WebView"];
+        WebViewController *webView = [[WebViewController alloc] initWithNibName:@"WebView" bundle:nil];
         [self.navigationController pushViewController:webView animated:YES];
         [webView loadWebpageFromString:[NSString stringWithFormat:@"http://maps.google.com/maps?q=%@", [thisuser getLocation]]];
     }
     else if(section == 2)
     {
-        WebViewController *webView = [self.storyboard instantiateViewControllerWithIdentifier:@"WebView"];
+        WebViewController *webView = [[WebViewController alloc] initWithNibName:@"WebView" bundle:nil];
         [self.navigationController pushViewController:webView animated:YES];
         [webView loadWebpageFromString:[NSString stringWithFormat:@"%@", [thisuser getUrl]]];
     }
@@ -136,7 +136,7 @@
     {
         NSArray *listData = [userData objectForKey:[sortedKeys objectAtIndex:3]];
         NSString *url = [listData objectAtIndex:row];
-        WebViewController *webView = [self.storyboard instantiateViewControllerWithIdentifier:@"WebView"];
+        WebViewController *webView = [[WebViewController alloc] initWithNibName:@"WebView" bundle:nil];
         [self.navigationController pushViewController:webView animated:YES];
         [webView loadWebpageFromString:url];
     }

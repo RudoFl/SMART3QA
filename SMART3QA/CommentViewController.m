@@ -65,7 +65,7 @@
 
 - (IBAction)viewUser:(id)sender;
 {
-    UserDetailsController *userView = [self.storyboard instantiateViewControllerWithIdentifier:@"UserDetails"];
+    UserDetailsController *userView = [[UserDetailsController alloc] initWithNibName:@"UserDetailsView" bundle:nil];
     [self.navigationController pushViewController:userView animated:YES];
     User *user = [app getUserForId:((UIControl*)sender).tag];
     [userView loadUser:user];

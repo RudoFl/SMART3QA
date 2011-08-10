@@ -7,6 +7,7 @@
 @implementation SMART3QAAppDelegate
 
 @synthesize window = _window;
+@synthesize tabBarController = _tabBarController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -18,14 +19,22 @@
     //hostname = [[NSString alloc]initWithString:@"http://smart3.fhict.com"];
     NSLog(@"Download/Parsing started");
     [self downloadQuestions];
-    NSLog(@"Questions done");
+    NSLog([NSString stringWithFormat:@"Questions done(%d)", [questions count]]);
     [self downloadUsers];
-    NSLog(@"Users done");
+    NSLog([NSString stringWithFormat:@"Users done(%d)", [users count]]);
     [self downloadTags];
-    NSLog(@"Tags done");
+    NSLog([NSString stringWithFormat:@"Tags done(%d)", [tags count]]);
     NSLog(@"Download/Parsing finished");
+    self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+- (void) dealloc
+{
+    [_window release];
+    [_tabBarController release];
+    [super dealloc];
 }
 
 - (UIImage *)downloadImage:(NSURL *)url

@@ -13,8 +13,8 @@
 int main(int argc, char *argv[])
 {
     int retVal = 0;
-    @autoreleasepool {
+    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
         retVal = UIApplicationMain(argc, argv, nil, NSStringFromClass([SMART3QAAppDelegate class]));
-    }
+    [pool release];
     return retVal;
 }

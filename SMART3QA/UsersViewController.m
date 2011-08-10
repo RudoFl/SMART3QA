@@ -47,10 +47,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    User *selectedUser = [app getUserForIndex:[indexPath row]];
-    UserDetailsController *userView = [self.storyboard instantiateViewControllerWithIdentifier:@"UserDetails"];
-    [userView loadUser:selectedUser];
+    UserDetailsController *userView = [[UserDetailsController alloc] initWithNibName:@"UserDetailsView" bundle:nil];
     [self.navigationController pushViewController:userView animated:YES];
+    User *selectedUser = [app getUserForIndex:[indexPath row]];
+    [userView loadUser:selectedUser];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 

@@ -11,13 +11,15 @@
 #import "User.h"
 #import "Tag.h"
 
-@interface SMART3QAAppDelegate : UIResponder <UIApplicationDelegate>
+@interface SMART3QAAppDelegate : UIResponder <UIApplicationDelegate, UITabBarControllerDelegate>
 {    
     NSString *hostname;
     NSArray *questions, *users, *tags;
 }
 
-@property (strong, nonatomic) UIWindow *window;
+@property (nonatomic, retain) IBOutlet UIWindow *window;
+
+@property (nonatomic, retain) IBOutlet UITabBarController *tabBarController;
 
 - (UIImage *)downloadImage:(NSURL *)url;
 - (UIImage *)resizeImage:(UIImage *)image scaleToSize:(CGSize)newSize;
